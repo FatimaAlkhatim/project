@@ -151,7 +151,8 @@ public function calco(){
     $date=Client::all();
     $sta=State::all();
     $lo=Local::all();
-    return view('zaka.calco',compact('date','sta','lo'));
+    $info=Farmerie::all();
+    return view('zaka.calco',compact('date','sta','lo','info'));
 }
 
 
