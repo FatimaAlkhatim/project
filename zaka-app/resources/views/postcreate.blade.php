@@ -34,7 +34,7 @@ tr:nth-child(even) {
 
 <!-- <h2>HTML Table</h2> -->
 <center>
-<table class="table col-md-12">
+<table class="table col-md-6">
   <thead>
   <tr>
   <th>العمليات</th>

@@ -15,25 +15,39 @@
 <div class="row">
   <div class="col-sm-6 ">
     <div class="card  text-dark bg-secondary ">
-    <div class="card-header" style="text-align:center;"> ....خدمات المذكين</div>
+    <h5 class="card-header" style="text-align:center;"> ....خدمات المستحقين</h5>
 
       <div class="card-body">
-      <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white; ">الذهاب الي خدمات المذكين</a></h5>
-        <p class="card-text"style="  text-align:right;">With supporting text below as a natural lead-in to additional content.</p>
+      <!-- <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white; ">الذهاب الي خدمات المذكين</a></h5> -->
+        <p class="card-text"style="  text-align:right;">
+
+        بيّن الله مستحقّوا الزكاة في كتابه الكريم، وهم ثمانية أصناف، قال -تعالى-: (إِنَّمَا الصَّدَقاتُ لِلفُقَراءِ وَالمَساكينِ وَالعامِلينَ عَلَيها وَالمُؤَلَّفَةِ قُلوبُهُم وَفِي الرِّقابِ وَالغارِمينَ وَفي سَبيلِ اللَّـهِ وَابنِ السَّبيلِ فَريضَةً مِنَ اللَّـهِ وَاللَّـهُ عَليمٌ حَكيمٌ).[١]
+        وقد فرض الله -تعالى- الزكاة على الأغنياء، وأمرهم بدفعها بعد حسابها إلى ثمانيّة أصناف في القرآن الكريم، وختم الآية بأنّه عليمٌ؛ أي بِمصالح عباده، و حكيمٌ؛ فيما فرضه عليهم، ولا تخرُج الزكاة إلا لهذه الأصناف الثمانيّة
+
+      
+    
+      </p>
       </div>
     </div>
   </div>
+
+
   <div class="col-sm-6">
     <div class="card text-white bg-success">
-    <div class="card-header" style="text-align:center;">....خدمات المستحقين</div>
+    <h5 class="card-header" style="text-align:center;"> ....خدمات المستحقين</h5>
 
       <div class="card-body">
       <h5 style="text-align:center;"><a href="{{ url('reseivable') }}" style="color:white;  text-align:center;">الذهاب الي خدمات المستحقين</a></h5>
-        <p class="card-text"style="  text-align:right;">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"style="  text-align:right;"> 
+        
+        
+                                المصارف الشرعيه الثمانيه اجمع عليها العلماء حيث انها حددت بالنص القراني وبالسنه الصحيحه والمتواتره وباجماع العلماء  فالنصوص قطعيه الدلاله علي عددها ولكنها ظنية الدلاله  في مفهومها
+                              </p>
       </div>
     </div>
   </div>
 </div>
+
 
                 </div>
             </div>

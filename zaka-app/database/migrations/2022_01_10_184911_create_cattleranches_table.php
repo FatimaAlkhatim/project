@@ -16,19 +16,30 @@ class CreateCattleranchesTable extends Migration
         Schema::create('cattleranches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('state_id');
+            $table->unsignedBigInteger('local_id');
 
             $table->String('cattleranch_type');
             $table->BigInteger('cattleranch_amount');
             $table->String('location');
-            $table->String('state');
-            $table->String('local');
+           
             $table->BigInteger('production_quantity');
-            $table->BigInteger('production_value');
             $table->timestamps();
             $table->foreign('client_id')
             ->references('id')
             ->on('clients')
             ->onDelete("cascade");
+            $table->foreign('state_id')
+            ->references('id')
+            ->on('states')
+            ->onDelete("cascade");
+
+
+            $table->foreign('local_id')
+            ->references('id')
+            ->on('locals')
+            ->onDelete("cascade");
+         
         });
     }
 

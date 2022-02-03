@@ -27,6 +27,9 @@ return [
         'user' => [
             'profile' => 'r,u',
         ],
+        'msk' => [
+            'profile' => 'r,u',
+        ],
     ],
 
     'permissions_map' => [

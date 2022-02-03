@@ -11,73 +11,58 @@ use Intervention\Image\Facades\Image;
 use App\Models\Client;
 use App\Models\Reseivable;
 use App\Models\Farmerie;
+use App\Models\State;
+use App\Models\Local;
+
+
+
+
+
+
 
 class HomeController extends Controller
 {
 
 
-
-// public function state( ){
-// return view('zaka.state');
-
-//     }
-
-//     public function statead(Request $request){
-// $date= new state;
-
-// // $date->state_id=$request->state_id;
-// $date->state_name=$request->state_name;
-
-// $date->save();
-// return redirect('index');
-
-//     }
-
-
-//     public function local( ){
-//         return view('zaka.local');
-        
-//             }
-        
-//         public function localad(Request $request){
-//         $data= new local;
-//         $data->local_name=$request->local_name;
-        
-//         $data->save();
-//         return redirect('index');
-//             }
-
-
-
-
-
-
-
+      
             public function index( ){
               
-                 $data=client::all();
-                return view('zaka.index',compact('data'));
+                 $date=client::all();
+                 $date=State::all();
+                 $lo=Local::all();
+
+                return view('zaka.index',compact('date','lo'));
                 
                     }
 
-
+public function sta(){
+    $date=State::all();
+   return view('zaka.index',compact('date'));
+}
+public function lo(){
+    $date=Local::all();
+   return view('zaka.index',compact('date'));
+}
                     public function addclient(Request $request){
                         $date= new client;  
                         $date->name=$request->name;
                         $date->national=$request->national;
                         $date->iphone=$request->iphone;
-                        $date->state=$request->state;
-                        $date->local=$request->local;
+                        $date->state_id=$request->state_id;
+                        $date->local_id=$request->local_id;
                         $date->client_type=$request->client_type;
                         
                         $date->save();
-                        return redirect()->back();
+                       
+                          return redirect()->back();
 
-                        return redirect('index')->with('success','succsed insert');
+
                             }
 
                             public function reseivable(){
-                                return view('zaka.reseivable');
+                                $sta=State::all();
+                                $lo=Local::all();
+                                return view('zaka.reseivable',compact('sta','lo'));
                             }
 
                             public function addreseivable(Request $request){
@@ -85,7 +70,7 @@ class HomeController extends Controller
                                 if($request->hasFile('project_image')){
                                     $project_image = $request->file('project_image');
                                     $filename = time() . '.' . $project_image->getClientOriginalExtension();
-                                    Image::make($project_image)->resize(190, 130)->save( public_path('uploads/' . $filename ) );
+                                    Image::make($project_image)->resize(100, 100)->save( public_path('uploads/' . $filename ) );
                                     $data->image = $filename;
                                  }else{
                                           $filename='default.png';
@@ -95,11 +80,12 @@ class HomeController extends Controller
                                 $data->national=$request->national;
                                 $data->iphone=$request->iphone;
                                 $data->location=$request->location;
-                                $data->state=$request->state;
-                                $data->local=$request->local;
+                                $data->state_id=$request->state_id;
+                                $data->local_id=$request->local_id;
                                 $data->status=$request->status;
                                 
                                 $data->reseivable_type=$request->reseivable_type;
+
                               
                                
     //                         if($request->image){
@@ -114,13 +100,25 @@ class HomeController extends Controller
     
                                 $data->save();
                                
-                                return redirect()->back();
+                                return redirect()->route('dashboard');
 
                             }
 
-                            // public function calco(){
-                            //     return view('zaka.calco');
-                            // }
+        // public function calco(){
+        //     return view('zaka.calco');
+        // }
+
+        public function ind(){
+              
+            $date=Client::all();
+            $date=Farmerie::all();
+            $date=Metels::all();
+            $date=Cattleranch::all();
+            $date=State::all();
+            $lo=Local::all();
+           return view('zaka.calco',compact('date','lo'));
+           
+               }
 
 public function addfarm(Request $request){
     $info= new farmerie; 
@@ -129,9 +127,12 @@ public function addfarm(Request $request){
     $info->location=$request->location;
     $info->crope_type=$request->crope_type;
     $info->irrigate_type=$request->irrigate_type;
-    $info->state=$request->state;
-    $info->local=$request->local;
+    $info->state_id=$request->state_id;
+    $info->local_id=$request->local_id;
     $info->production_quantity=$request->production_quantity;
+
+    $info->client_id=$request->client_id;
+
     
     $info->save();
                                
@@ -139,6 +140,20 @@ public function addfarm(Request $request){
 
 
 }
+
+
+
+
+
+
+
+public function calco(){
+    $date=Client::all();
+    $sta=State::all();
+    $lo=Local::all();
+    return view('zaka.calco',compact('date','sta','lo'));
+}
+
 
 public function show(){
     return DB::table('clients')

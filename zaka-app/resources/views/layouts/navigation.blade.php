@@ -65,14 +65,15 @@
     @if (Auth::user()->hasRole('overseer'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard.overseer')" :active="request()->routeIs('dashboard.overseer')">
-                        {{ __('صفحة المشرف') }}
+                    {{ __('صفحة المشرف') }}<i class="fas fa-user"></i>
                     </x-nav-link>
                 </div>
                 @endif
                 @if (Auth::user()->hasRole('committee'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard.myprofile')" :active="request()->routeIs('dashboard.myprofile')">
-                        {{ __('صفحة اللجنه القاعديه') }}
+                   {{ __('صفحة اللجنه القاعديه') }}   <i class="fas fa-user"></i>
+
                     </x-nav-link>
                 </div>
                 @endif
@@ -80,7 +81,7 @@
                 @if (Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard.postcreate')" :active="request()->routeIs('dashboard.postcreate')">
-                        {{ __('صفحة المدير') }}
+                        {{ __('صفحة المدير') }}    <i class="fas fa-user-lock"></i>        
                     </x-nav-link>
                 </div>
                 @endif
@@ -89,31 +90,52 @@
                  @if (Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')">
-                        {{ __(' ارسل رساله') }}
+                        {{ __(' ارسل رساله') }}<i class="fas fa-envelope"></i>      
                     </x-nav-link>
                 </div>
                 @endif
 
                 @if (Auth::user()->hasRole('committee'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
                     <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')">
-                        {{ __(' ارسل رساله') }}
+                        {{ __(' ارسل رساله') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
                 </div>
                 @endif
 
+                
                 @if (Auth::user()->hasRole('overseer'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
                     <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')">
-                        {{ __(' ارسل رساله') }}
+                        {{ __(' ارسل رساله') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
                 </div>
                 @endif 
 
-                <h6 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;"> <a href="{{url('/dashboard')}}" style="color:black;">الصفحه الرئيسيه </a></h6>
 
+
+ <h6 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;"> <a href="{{url('/dashboard')}}" style="color:black;">الصفحه الرئيسيه <i class="fas fa-home"></i>
+ </a></h6>
+ 
+ @if (Auth::user()->hasRole('msk'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
+                    <x-nav-link :href="route('messages')" :active="request()->routeIs('messages.create')">
+                        {{ __('  تحقق من صفحة رسالئك ') }}<i class="fas fa-envelope"></i>  
+                    </x-nav-link>
+                </div>
+                @endif 
+           
+ @if (Auth::user()->hasRole('user'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
+                    <x-nav-link :href="route('messages')" :active="request()->routeIs('messages.create')">
+                        {{ __('  تحقق من صفحة رسالئك ') }}<i class="fas fa-envelope"></i>  
+                    </x-nav-link>
+                </div>
+                @endif 
             </div>
 
+
+            
     <h3 style="padding: 10px;">زكاة<span style="color:red;">السودان</span></h3>
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

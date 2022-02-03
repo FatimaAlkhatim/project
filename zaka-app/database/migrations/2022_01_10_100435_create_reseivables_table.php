@@ -15,16 +15,33 @@ class CreateReseivablesTable extends Migration
     {
         Schema::create('reseivables', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('state_id');
+            $table->unsignedBigInteger('local_id');
+
             $table->String('name');
             $table->String('national');
             $table->BigInteger('iphone');
             $table->String('location');
-            $table->String('state');
-            $table->String('local');
+        
             $table->String('status');
             $table->String('reseivable_type');
             $table->String('image');
             $table->timestamps();
+            
+            $table->foreign('state_id')
+            ->references('id')
+            ->on('states')
+            ->onDelete("cascade");
+
+
+            $table->foreign('local_id')
+            ->references('id')
+            ->on('locals')
+            ->onDelete("cascade");
+           
+
+
+
         });
     }
 

@@ -12,13 +12,19 @@ class DashboardController extends Controller
     {
         if(Auth::user()->hasRole('user')){
              return view('dashboard');
-        }elseif(Auth::user()->hasRole('overseer')){
+        
+            }elseif(Auth::user()->hasRole('msk')){
+              return view('msk');
+             
+            
+            }elseif(Auth::user()->hasRole('overseer')){
              return view('dashboard');
             }elseif(Auth::user()->hasRole('committee')){
                 return view('dashboard');
         }elseif(Auth::user()->hasRole('admin')){
          return view('dashboard');
     }
+    
     }
     public function myprofile()
    {

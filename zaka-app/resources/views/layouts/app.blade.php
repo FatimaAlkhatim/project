@@ -12,8 +12,11 @@
         
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/d.css') }}">
+
  <!-- Font Awesome Icons -->
  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
@@ -180,6 +183,8 @@ swal({
         role="button"
         ><i class="fab fa-instagram"></i
       ></a>
+      <br>
+      <h5>الرجاء زيارة صفحتنا علي الروابط اعلاه</h5>
 
       <!-- Linkedin -->
       <!-- <a
@@ -205,8 +210,7 @@ swal({
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     <!-- <span style="color: black;"> ذكاة <span class="text-danger">السودان </span></span> -->
-    <span style="color: black;font-size: 25px; "> زكاة <span class="text-danger">السودان </span></span>
-    <h5>الرجاء زيارة صفحتنا علي الروابط اعلاه</h5>
+    <span style="color: black;font-size: 25px; "> زكاة <span class="text-danger">السودان </span>(2022)</span>
   </div>
   <!-- Copyright -->
 </footer>

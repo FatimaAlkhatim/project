@@ -16,18 +16,29 @@ class CreateMetelsTable extends Migration
         Schema::create('metels', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('state_id');
+            $table->unsignedBigInteger('local_id');
 
-            $table->String('lease');
+            $table->String('image');
             $table->String('location');
             $table->String('metels_type');
-            $table->String('state');
-            $table->String('local');
+           
             $table->BigInteger('production_quantity');
-            $table->BigInteger('production_value');
             $table->timestamps();
             $table->foreign('client_id')
             ->references('id')
             ->on('clients')
+            ->onDelete("cascade");
+            
+            $table->foreign('state_id')
+            ->references('id')
+            ->on('states')
+            ->onDelete("cascade");
+
+
+            $table->foreign('local_id')
+            ->references('id')
+            ->on('locals')
             ->onDelete("cascade");
         });
     }
