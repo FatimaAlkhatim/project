@@ -62,8 +62,8 @@ tr:nth-child(even) {
   </td >  
   <td>{{$reseivable->reseivable_type}}</td >  
   <td>{{$reseivable->status}}</td >    
-  <td>{{$reseivable->local}}</td >   
-    <td>{{$reseivable->state}}</td>
+  <td>{{$reseivable->local_id}}</td >   
+    <td>{{$reseivable->state_id}}</td>
     <td>{{$reseivable->location}}</td>
     <td>{{$reseivable->iphone}}</td>
     <td>{{$reseivable->national}}</td>

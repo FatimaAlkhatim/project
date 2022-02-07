@@ -60,38 +60,12 @@
 </select>
 </div>
 
-<div class="mb-3">
-  <select  name="state_id" style="width: 400px; text-align:right;" >
-  <option >اختر ولايتك</option>
 
-  @foreach ($sta as $state)
-  <option ></option>
-
-        <option value="{{ $state->id }}">{{ $state->name }}</option>
-    @endforeach
-  </select>
-  <button class="btn btn-outline-secondary" style="margin-left: 290px;" type="button"><a href="{{url('state')}}">اضف ولايتك</a></button>
-</div>
-<br>
-<div class="mb-3">
-  <select  name="local_id" style="width: 400px; text-align:right;" >
-  <option >اختر محليتك</option>
-
-  @foreach ($lo as $local)
-  <option ></option>
-
-        <option value="{{ $local->id }}">{{ $local->name }}</option>
-    @endforeach
-  </select>
-  <button class="btn btn-outline-secondary" style="margin-left: 290px;" type="button"><a href="{{url('local')}}">اضف محليتك</a></button>
-</div>
 
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label"style="float:right;">كمية الانتاج</label>
   <input type="text" name="production_quantity" class="form-control" id="exampleFormControlInput1" style="width: 400px; text-align:right;">
 </div>
-
-
 <!-- Recipients list -->
 <div class="md-3">
 <x-label :value="__('اختر  اسمك')" style=" float:right"  />
@@ -101,8 +75,14 @@
     @endforeach
 </select>
 </div>
+
 <br>
-<button class="btn btn-info"  style="width:200px; color:white; float:right"  >حفظ</button> 
+
+
+<button class="btn btn-info"  style="width:200px; color:white; float:right">حفظ
+
+
+</button> 
 						
 						</form>
 						 
@@ -155,32 +135,6 @@
 <option>  ذهب   </option>
 <option>  فضه </option>
 </select>
-</div>
-
-<div class="mb-3">
-  <select  name="state_id" style="width: 400px; text-align:right;" >
-  <option >اختر ولايتك</option>
-
-  @foreach ($sta as $state)
-  <option ></option>
-
-        <option value="{{ $state->id }}">{{ $state->name }}</option>
-    @endforeach
-  </select>
-  <button class="btn btn-outline-secondary"style="margin-left: 290px;" type="button"><a href="{{url('state')}}">اضف ولايتك</a></button>
-</div>
-<br>
-<div class="mb-3">
-  <select  name="local_id" style="width: 400px; text-align:right;" >
-  <option >اختر محليتك</option>
-
-  @foreach ($lo as $local)
-  <option > </option>
-
-        <option value="{{ $local->id }}">{{ $local->name }}</option>
-    @endforeach
-  </select>
-  <button class="btn btn-outline-secondary"style="margin-left: 290px;" type="button" ><a href="{{url('local')}}">اضف محليتك</a></button>
 </div>
 
 <div class="mb-3">
@@ -240,37 +194,6 @@
   <input type="text" name="location" class="form-control" id="exampleFormControlInput1" style="width: 400px; text-align:right;">
 </div>
 
-<div class="mb-3">
-  <select  name="state_id" style="width: 400px; text-align:right;" >
-  <option >اختر ولايتك</option>
-
-  @foreach ($sta as $state)
-  <option > </option>
-
-        <option value="{{ $state->id }}">{{ $state->name }}</option>
-    @endforeach
-  </select>
-  <button class="btn btn-outline-secondary"style="margin-left: 290px;" type="button"><a href="{{url('state')}}">اضف ولايتك</a></button>
-</div>
-<br>
-<div class="mb-3">
-  <select  name="local_id" style="width: 400px; text-align:right;" >
-  <option >اختر محليتك</option>
-
-  @foreach ($lo as $local)
-  <option></option>
-
-        <option value="{{ $local->id }}">{{ $local->name }}</option>
-    @endforeach
-  </select>
-  <button class="btn btn-outline-secondary" style="margin-left: 290px;" type="button"><a href="{{url('local')}}">اضف محليتك</a></button>
-</div>
-
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label"style="float:right;">كمية الانتاج</label>
-  <input type="text" name="production_quantity" class="form-control" id="exampleFormControlInput1" style="width: 400px; text-align:right;">
-</div>
-
 
 
 <!-- Recipients list -->
@@ -296,32 +219,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-         <!-- value -->
-                <div>
-                  
-                @foreach($info as $farmeries)
-                @if($farmeries->production_quantity >= 653)
-              
-                @if($farmeries->irrigate_type == 'مطري')
-                
-                <h3>{{$farmeries->production_quantity * 10 / 100}}</h3>
-                
-
-                @elseif($farmeries->irrigate_type == 'الاله')
-
-              
-              
-                <h3>{{$farmeries->production_quantity * 5 / 100}}</h3>
-                @else
-                <h3>{{$farmeries->production_quantity * 7.5 / 100}}</h3>
-
-                @endif
-                @endif
-                
-                @endforeach
-                </div>
-          <!-- end of value div  -->
-                <div class="card" style="width: 18rem;">
+           
+                    <div class="card" style="width: 18rem;">
 
 
 

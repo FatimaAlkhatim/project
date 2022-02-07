@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
+
 // use File; 
 use Illuminate\Support\Facades\DB; 
 use Intervention\Image\Facades\Image;
@@ -13,6 +14,8 @@ use App\Models\Reseivable;
 use App\Models\Farmerie;
 use App\Models\State;
 use App\Models\Local;
+use App\Models\Metels;
+
 
 
 
@@ -127,8 +130,7 @@ public function addfarm(Request $request){
     $info->location=$request->location;
     $info->crope_type=$request->crope_type;
     $info->irrigate_type=$request->irrigate_type;
-    $info->state_id=$request->state_id;
-    $info->local_id=$request->local_id;
+    
     $info->production_quantity=$request->production_quantity;
 
     $info->client_id=$request->client_id;
@@ -136,7 +138,7 @@ public function addfarm(Request $request){
     
     $info->save();
                                
-    return redirect()->back();
+    return redirect('complet');;
 
 
 }
@@ -153,6 +155,15 @@ public function calco(){
     $lo=Local::all();
     $info=Farmerie::all();
     return view('zaka.calco',compact('date','sta','lo','info'));
+}
+
+
+
+
+public function complet(){
+    $info=Farmerie::all();
+
+    return view('zaka.complet',compact('info'));
 }
 
 

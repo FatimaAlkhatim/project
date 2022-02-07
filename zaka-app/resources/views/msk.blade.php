@@ -11,7 +11,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- You're logged in! -->
-
+                    <div class="text-right">
+		<a href="{{ url('index') }}" class="btn btn-secondary">الذهاب الي خدمات المذكين </a>
+	</div>
+  <br>
 <div class="row">
   <div class="col-sm-6 ">
     <div class="card  text-dark bg-secondary ">

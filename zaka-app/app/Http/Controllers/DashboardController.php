@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Client;
 use App\Models\Reseivable;
+use App\Models\Selectt;
 class DashboardController extends Controller
 {
     public function index()
@@ -18,11 +19,11 @@ class DashboardController extends Controller
              
             
             }elseif(Auth::user()->hasRole('overseer')){
-             return view('dashboard');
+             return view('relt');
             }elseif(Auth::user()->hasRole('committee')){
-                return view('dashboard');
+                return view('relt');
         }elseif(Auth::user()->hasRole('admin')){
-         return view('dashboard');
+         return view('relt');
     }
     
     }
@@ -35,15 +36,35 @@ class DashboardController extends Controller
    public function postcreate()
    {
      $data=reseivable::all();
+     $date=Selectt::all();
 
-    return view('postcreate',compact('data'));
+    return view('postcreate',compact('data','date'));
    }
    public function  overseer()
    {
      $data=reseivable::all();
-    return view(' overseer',compact('data'));
+     $date=Selectt::all();
+
+    return view(' overseer',compact('data','date'));
    }
+  //  public function sel( ){
+  //   $data=reseivable::all();
+  //   return view(' overseer',compact('data'));
+  //  }
   
+   public function addamount(Request $request){
+    $mount = new Selectt;
+      $mount->amount =$request->amount ;
+      $mount->reseivable_id =$request->reseivable_id;
+      $mount->save();                   
+      return redirect()->back();
+    }
+public function deletesel($id){
+  $date=Selectt::find($id);
+  $date->delete();
+  return redirect()->back();
+
+}
 
    public function deleteres($id){
      $data=reseivable::find($id);

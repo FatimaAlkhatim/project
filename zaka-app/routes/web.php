@@ -94,6 +94,15 @@ Route::post('/sta', [HomeController::class,'sta']);
 Route::get('/local', [LocationController::class,'local']);
 Route::post('/addlocal', [LocationController::class,'addlocal']);
 Route::post('/lo', [HomeController::class,'lo']);
+Route::get('/complet', [HomeController::class,'complet']);
+Route::get('/met', [spradController::class,'met']);
+Route::get('/calt', [spradController::class,'calt']);
+Route::post('/addamount', [DashboardController::class,'addamount']);
+Route::post('/sel', [DashboardController::class,'sel']);
+Route::get('/deletesel/{id}', [DashboardController::class,'deletesel']);
+
+// Route::get('/selectt', [spradController::class,'selectt']);
+
 
 
 

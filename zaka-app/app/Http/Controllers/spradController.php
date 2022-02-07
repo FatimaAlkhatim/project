@@ -7,6 +7,8 @@ use Intervention\Image\Facades\Image;
 
 use App\Models\Metels;
 use App\Models\Cattleranch;
+use App\Models\reseivable;
+
 class spradController extends Controller
 {
 
@@ -35,8 +37,7 @@ class spradController extends Controller
         $met->image = $filename;
         $met->location =  $request->location;
         $met->metels_type=$request->metels_type;
-        $met->state_id=$request->state_id;
-        $met->local_id=$request->local_id;
+      
         $met->production_quantity=$request->production_quantity;
     
         $met->client_id=$request->client_id;
@@ -44,9 +45,14 @@ class spradController extends Controller
         
         $met->save();
                                    
-        return redirect()->back();
+        return redirect('met');
     }
-    
+
+    public function met(){
+        $met=Metels::all();
+ 
+        return view('zaka.met', compact('met'));
+    }
     
     public function inc( ){
               
@@ -62,21 +68,21 @@ class spradController extends Controller
     
         $cat->cattleranch_type =$request->cattleranch_type ;
         $cat->cattleranch_amount  =$request->cattleranch_amount  ;
-        $cat->location  =$request->location  ;
-
-         
-        $cat->state_id=$request->state_id;
-        $cat->local_id=$request->local_id;
-        $cat->production_quantity=$request->production_quantity;
-    
+        $cat->location  =$request->location ;
         $cat->client_id=$request->client_id;
-    
-        
-        $cat->save();
-                                   
-        return redirect()->back();
+        $cat->save();                   
+        return redirect('calt');
     }
     
 
-    
+    public function calt(){
+        $calt=Cattleranch::all(); 
+        return view('zaka.calt',compact('calt'));
+    }
+
+
+public function selectt(){
+    return view('selectt');
+}
+
 }

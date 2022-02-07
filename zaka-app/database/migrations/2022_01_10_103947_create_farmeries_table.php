@@ -16,8 +16,7 @@ class CreateFarmeriesTable extends Migration
         Schema::create('farmeries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id');
-            $table->unsignedBigInteger('state_id');
-            $table->unsignedBigInteger('local_id');
+           
 
             $table->BigInteger('projct_id');
             $table->String('area');
@@ -31,18 +30,7 @@ class CreateFarmeriesTable extends Migration
                             ->references('id')
                             ->on('clients')
                             ->onDelete("cascade");
- $table->foreign('state_id')
-            ->references('id')
-            ->on('states')
-            ->onDelete("cascade");
-
-
-            $table->foreign('local_id')
-            ->references('id')
-            ->on('locals')
-            ->onDelete("cascade");
-           
-
+ 
                            
             
 

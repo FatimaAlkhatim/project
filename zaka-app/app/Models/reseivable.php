@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\State;
 use App\Models\Local;
+use App\Models\Selectt;
 class reseivable extends Model
 {
     use HasFactory;
@@ -20,6 +21,12 @@ class reseivable extends Model
      public function local()
      {
          return  $this->belongsTo(Local::class);
+     }
+     
+
+     public function selectt()
+     {
+         return  $this->hasOne(Selectt::class);
      }
      
     

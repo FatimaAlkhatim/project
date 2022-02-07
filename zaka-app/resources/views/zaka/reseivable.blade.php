@@ -2,12 +2,14 @@
 
 <x-app-layout>
 <br><br><br>
+
 <center>
 <form  action="{{url('addreseivable')}}" method="post" enctype="multipart/form-data" id="intervention-image-upload"> 
     @csrf
 
 
 <div class="mb-6">
+  <!-- <label > الاسم</label> -->
   <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="الاسم" style="width: 400px; text-align:right;">
 </div>
 

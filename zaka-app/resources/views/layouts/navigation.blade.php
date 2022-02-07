@@ -96,7 +96,7 @@
                 @endif
 
                 @if (Auth::user()->hasRole('committee'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')">
                         {{ __(' ارسل رساله') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
@@ -105,7 +105,7 @@
 
                 
                 @if (Auth::user()->hasRole('overseer'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')">
                         {{ __(' ارسل رساله') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
