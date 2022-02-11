@@ -167,12 +167,49 @@ public function complet(){
 }
 
 
-public function show(){
-    return DB::table('clients')
-    ->join('farmeries','client_id',"=",'farmeries.client_id')
-    // ->select('clients.*')
-    ->get();
+public function show()
+{
+    $data = Client::join('farmeries','farmeries.client_id','=','clients.id')
+    // ->('farmerie','farmerie.client_id','=','client.id')
+
+    // $result = DB::table('clients')
+    // ->leftJoin('farmeries','client_id',"=",'farmeries.client_id')
+
+    // ->select('clients.name as clientName')
+    ->get(['clients.name','farmeries.irrigate_type','farmeries.production_quantity','farmeries.location','farmeries.crope_type']);
+
+    return view('zaka.show',compact('data'));
 }
+
+
+public function report()
+{
+    $data = Client::join('metels','metels.client_id','=','clients.id')
+    // ->('farmerie','farmerie.client_id','=','client.id')
+
+    // $result = DB::table('clients')
+    // ->leftJoin('farmeries','client_id',"=",'farmeries.client_id')
+
+    // ->select('clients.name as clientName')
+    ->get(['clients.name','metels.metels_type','metels.production_quantity']);
+
+    return view('zaka.report',compact('data'));
+}
+
+public function print()
+{
+    $data = Client::join('cattleranches','cattleranches.client_id','=','clients.id')
+    // ->('farmerie','farmerie.client_id','=','client.id')
+
+    // $result = DB::table('clients')
+    // ->leftJoin('farmeries','client_id',"=",'farmeries.client_id')
+
+    // ->select('clients.name as clientName')
+    ->get(['clients.name','cattleranches.cattleranch_type','cattleranches.cattleranch_amount']);
+
+    return view('zaka.print',compact('data'));
+}
+
 
 }
 

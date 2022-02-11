@@ -10,7 +10,7 @@
                  <div>
                   
                   @foreach($met as $metels)  
-                  @if($metels->production_quantity >= 85)
+                  @if($metels->production_quantity <= 85)
                 
                   @if($metels->metels_type == 'ذهب')
                   
@@ -19,7 +19,7 @@
                   @endif
                   @endif
 
-                  @if($metels->production_quantity >= 595)
+                  @if($metels->production_quantity <= 595)
                 
                 @if($metels->metels_type == 'فضه')
                 

@@ -4,31 +4,45 @@
         <h3><a href="{{url('/messages')}}" style= "color:black;  padding:500px;float:center">صفحة الرسائل</a></h3>
 
         </h2> -->
-   
-
+      
     <div class="py-12 mt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- You're logged in! -->
+                   
                     <div class="text-right">
-		<a href="{{ url('reseivable') }}" class="btn btn-secondary">الذهاب الي خدمات المستحقين </a>
+		<a href="{{ url('show') }}" class="btn btn-success"> صفحة تقرير   المزارع
+
+
+        </a>
 	</div>
-  <br>
-<div class="row">
+    <br>
+    <div class="text-right">
+		<a href="{{ url('report') }}" class="btn btn-secondary "> صفحة تقرير المعادن
+
+
+        </a>
+	</div>
+    <br>
+    <div class="text-right">
+		<a href="{{ url('print') }}" class="btn btn-info"> صفحة تقرير الانعام
+
+
+        </a>
+	</div>
+<br><br>
+  <div class="row">
   <div class="col-sm-6 ">
     <div class="card  text-dark bg-secondary ">
-    <h5 class="card-header" style="text-align:center;"> ....خدمات المستحقين</h5>
+    <h5 class="card-header" style="text-align:center;"> ....خدمات المذكين</h5>
 
       <div class="card-body">
-      <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white; ">الذهاب الي خدمات المذكين</a></h5>
+      <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white;  text-align:center;">الذهاب الي خدمات المذكين</a></h5>
+
+      <!-- <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white; ">الذهاب الي خدمات المذكين</a></h5> -->
         <p class="card-text"style="  text-align:right;">
-
-        بيّن الله مستحقّوا الزكاة في كتابه الكريم، وهم ثمانية أصناف، قال -تعالى-: (إِنَّمَا الصَّدَقاتُ لِلفُقَراءِ وَالمَساكينِ وَالعامِلينَ عَلَيها وَالمُؤَلَّفَةِ قُلوبُهُم وَفِي الرِّقابِ وَالغارِمينَ وَفي سَبيلِ اللَّـهِ وَابنِ السَّبيلِ فَريضَةً مِنَ اللَّـهِ وَاللَّـهُ عَليمٌ حَكيمٌ)
-        وقد فرض الله -تعالى- الزكاة على الأغنياء    
-
-      
-    
+        يقوم العاملون على جباية أموال الزكاة، بحساب المقادير المترتبة على المكلفين من زكاة، من الأموال التي تكون ظاهرة لهم، من زروع وأنعام، والاعتماد هنا على ما يظهر من أموال، فيقوم الجباة بحساب المال الظاهر لدى المكلف، وتحديد وجوب الزكاة فيه أم لا                       
       </p>
       </div>
     </div>

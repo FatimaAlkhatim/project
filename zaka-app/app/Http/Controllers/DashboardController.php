@@ -23,7 +23,7 @@ class DashboardController extends Controller
             }elseif(Auth::user()->hasRole('committee')){
                 return view('relt');
         }elseif(Auth::user()->hasRole('admin')){
-         return view('relt');
+         return view('admin');
     }
     
     }
@@ -47,6 +47,10 @@ class DashboardController extends Controller
 
     return view(' overseer',compact('data','date'));
    }
+public function report(){
+  return view('report');
+}
+
   //  public function sel( ){
   //   $data=reseivable::all();
   //   return view(' overseer',compact('data'));

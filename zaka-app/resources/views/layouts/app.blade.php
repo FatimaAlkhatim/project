@@ -13,6 +13,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/d.css') }}">
@@ -215,6 +216,8 @@ swal({
   <!-- Copyright -->
 </footer>
   <!-- /.control-sidebar -->
+  
+
   <script src="{{ asset('js/jquery-2.2.1.min.js.js') }}"></script>
 
         <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>

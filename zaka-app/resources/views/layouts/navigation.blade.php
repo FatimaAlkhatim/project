@@ -94,6 +94,10 @@
                     </x-nav-link>
                 </div>
                 @endif
+                
+            
+
+
 
                 @if (Auth::user()->hasRole('committee'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -112,8 +116,8 @@
                 </div>
                 @endif 
 
-
-
+              
+         
  <h6 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;"> <a href="{{url('/dashboard')}}" style="color:black;">الصفحه الرئيسيه <i class="fas fa-home"></i>
  </a></h6>
  

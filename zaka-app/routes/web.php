@@ -43,6 +43,9 @@ Route::group(['middleware' => ['auth', 'role:committee']], function() {
 Route::group(['middleware' => ['auth', 'role:admin']], function() { 
     Route::get('/dashboard/postcreate', 'App\Http\Controllers\DashboardController@postcreate')->name('dashboard.postcreate');
 });
+// Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+//     Route::get('/zaka/show', 'App\Http\Controllers\HomeController@show')->name('zaka.show');
+// });
 
 
 Route::group(['middleware' => ['auth', 'role:admin']], function() { 
@@ -110,5 +113,7 @@ Route::get('/deletesel/{id}', [DashboardController::class,'deletesel']);
 
 
 
-
-Route::get('show',[HomeController::class,'show']);
+//report
+Route::get('/show',[HomeController::class,'show']);
+Route::get('/report',[HomeController::class,'report']);
+Route::get('/print',[HomeController::class,'print']);
