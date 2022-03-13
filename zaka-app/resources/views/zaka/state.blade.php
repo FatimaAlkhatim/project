@@ -9,7 +9,7 @@
 
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">اسم ولايتك</label>
-  <input type="text" name="name" class="form-control" id="exampleFormControlInput1"  style="width: 400px; text-align:right;">
+  <input type="text" name="state_name" class="form-control" id="exampleFormControlInput1"  style="width: 400px; text-align:right;">
 </div>
 
 

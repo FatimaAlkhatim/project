@@ -11,7 +11,7 @@ class Local extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'local_name',
       ];
       
       public function client()

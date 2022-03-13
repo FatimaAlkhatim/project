@@ -16,7 +16,7 @@ class LocationController extends Controller
 
 public function addstate(Request $request){
     $sta= new State;  
-    $sta->name=$request->name;
+    $sta->state_name=$request->state_name;
     $sta->save();
 
     if(Auth::user()->hasRole('user')){
@@ -37,7 +37,7 @@ public function addstate(Request $request){
     }
     public function addlocal(Request $request){
         $lo= new Local; 
-        $lo->name=$request->name;
+        $lo->local_name=$request->local_name;
         $lo->save();
         if(Auth::user()->hasRole('user')){
             return redirect('reseivable');

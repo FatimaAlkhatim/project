@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\spradController;
 use App\Http\Controllers\LocationController;
-
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -21,7 +21,7 @@ use App\Http\Controllers\LocationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //auth route for both 
@@ -32,6 +32,13 @@ Route::group(['middleware' => ['auth']], function() {
 // for users
 Route::group(['middleware' => ['auth', 'role:overseer']], function() { 
     Route::get('/dashboard/overseer', 'App\Http\Controllers\DashboardController@overseer')->name('dashboard.overseer');
+
+
+});
+Route::group(['middleware' => ['auth', 'role:overseer']], function() { 
+    Route::get('/dashboard/over', 'App\Http\Controllers\DashboardController@over')->name('dashboard.over');
+
+
 });
 
 // for blogwriters
@@ -43,9 +50,39 @@ Route::group(['middleware' => ['auth', 'role:committee']], function() {
 Route::group(['middleware' => ['auth', 'role:admin']], function() { 
     Route::get('/dashboard/postcreate', 'App\Http\Controllers\DashboardController@postcreate')->name('dashboard.postcreate');
 });
-// Route::group(['middleware' => ['auth', 'role:admin']], function() { 
-//     Route::get('/zaka/show', 'App\Http\Controllers\HomeController@show')->name('zaka.show');
-// });
+
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::get('/dashboard/post', 'App\Http\Controllers\DashboardController@post')->name('dashboard.post');
+});
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::get('/zaka/crope', 'App\Http\Controllers\DashboardController@crope')->name('zaka.crope');
+    Route::post('search', 'App\Http\Controllers\DashboardController@search')->name('search');
+});
+
+
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::get('/zaka/show', 'App\Http\Controllers\HomeController@show')->name('zaka.show');
+});
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::post('Search_invoices', 'App\Http\Controllers\HomeController@Search_invoices')->name('Search_invoices');
+});
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::post('Search_invoicess', 'App\Http\Controllers\HomeController@Search_invoicess')->name('Search_invoicess');
+});
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::post('Search_invoicesss', 'App\Http\Controllers\HomeController@Search_invoicesss')->name('Search_invoicesss');
+});
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::get('/zaka/report', 'App\Http\Controllers\HomeController@report')->name('zaka.report');
+});
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::get('/zaka/print', 'App\Http\Controllers\HomeController@print')->name('zaka.print');
+});
 
 
 Route::group(['middleware' => ['auth', 'role:admin']], function() { 
@@ -56,6 +93,10 @@ Route::group(['middleware' => ['auth', 'role:committee']], function() {
 });
 Route::group(['middleware' => ['auth', 'role:overseer']], function() { 
     Route::get('create', [MessagesController::class, 'create'])->name('.create');
+});
+
+Route::group(['middleware' => ['auth', 'role:msk']], function() { 
+    Route::get('/zaka/payment', [PaymentController::class, 'payment'])->name('zaka.payment');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
@@ -97,13 +138,14 @@ Route::post('/sta', [HomeController::class,'sta']);
 Route::get('/local', [LocationController::class,'local']);
 Route::post('/addlocal', [LocationController::class,'addlocal']);
 Route::post('/lo', [HomeController::class,'lo']);
-Route::get('/complet', [HomeController::class,'complet']);
+Route::get('/complet/{id}', [HomeController::class,'complet']);
 Route::get('/met', [spradController::class,'met']);
 Route::get('/calt', [spradController::class,'calt']);
 Route::post('/addamount', [DashboardController::class,'addamount']);
 Route::post('/sel', [DashboardController::class,'sel']);
 Route::get('/deletesel/{id}', [DashboardController::class,'deletesel']);
 
+Route::post('/create',[HomeController::class,'create']);
 // Route::get('/selectt', [spradController::class,'selectt']);
 
 
@@ -114,6 +156,14 @@ Route::get('/deletesel/{id}', [DashboardController::class,'deletesel']);
 
 
 //report
-Route::get('/show',[HomeController::class,'show']);
-Route::get('/report',[HomeController::class,'report']);
-Route::get('/print',[HomeController::class,'print']);
+Route::get('export-pdf', [HomeController::class, 'downloadPdf'])->name('export-pdf');
+Route::get('export', [HomeController::class, 'downloadPdff'])->name('export');
+Route::get('file-export', [HomeController::class, 'fileExport'])->name('file-export');
+// Route::get('/print',[HomeController::class,'print']);
+Route::post('Search_invoices', [HomeController::class,'Search_invoices']);
+Route::post('Search_invoicess', [HomeController::class,'Search_invoicess']);
+Route::post('Search_invoicesss', [HomeController::class,'Search_invoicesss']);
+Route::post('addpayment', [PaymentController::class,'addpayment']);
+
+
+

@@ -1,3 +1,4 @@
+
 <x-app-layout>
   <br><br><br>
 
@@ -8,32 +9,77 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                  <!-- value of farmers -->
                  <div>
+                   <!DOCTYPE html>
+                   <html lang="en">
+                   <head>
+                     <meta charset="UTF-8">
+                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                     <title>Document</title>
+                   </head>
+                   <body>
+                   
+
+                  @if($info->production_quantity >= 653)
+         
+                  @if($info->irrigate_type == 'مطري')
                   
-                  @foreach($info as $farmeries)
-                  @if($farmeries->production_quantity <= 653)
+                  <h3> زكاتك {{$info->production_quantity * $info->price_kilo / 10 / 100}}</h3>
+
                 
-                  @if($farmeries->irrigate_type == 'مطري')
-                  
-                  <h3> وزن{{$farmeries->production_quantity * 10 / 100 }}</h3>
-                
-  
-                  @elseif($farmeries->irrigate_type == 'الاله')
-                
-                  <h3> وزن{{$farmeries->production_quantity * 5 / 100 }}</h3>
-                  @else
-                  <h3> وزن{{$farmeries->production_quantity * 7.5 / 100}}</h3>
-  
+           
                   @endif
                   @endif
+
+                  @if($info->production_quantity >= 653)
+                  @if($info->irrigate_type == 'الاله')
+                  <h3>زكاتك {{$info->production_quantity * $info->price_kilo / 5 / 100 }}</h3>
+                  @endif
+                  @endif
+
+                  @if($info->production_quantity >= 653)
+                  @if($info->irrigate_type == 'تكميلي')
+                  <h3>زكاتك {{$info->production_quantity * $info->price_kilo / 7.5 / 100}}</h3>
+                  @endif
+                  @endif
+                
+               
+
+<table  class="table col-md-6" style="padding-right:60px;">
+<thead>
+        <tr>
+       
+            <th>كمية الانتاج</th>
+            <th>نوع الري</th>
+            <th>نوع المحصول</th>
+            
+          
+        </tr>
+</thead>
+  <tr>
+    <td> {{$info->production_quantity }}</td>
+    <td>
+    {{$info->irrigate_type }}
+    </td>
+    <td>
+    {{$info->crope_type }}
+    </td>
+  </tr>
+</table>
+                 
+                
                   
-                  @endforeach
+              
+<div class="text-right">
+    <a href="{{ route('zaka.payment') }}" class="btn btn-secondary btn-sm"> ادفع زكاتك <i class="fa fa-credit-card"></i> </a>
+
+    </div>
+                 
                   </div>
-            <!-- end of value of farmers  -->
-
-
             </div>
             </div>
         </div>
     </div>
     </center>
+    
     </x-app-layout>

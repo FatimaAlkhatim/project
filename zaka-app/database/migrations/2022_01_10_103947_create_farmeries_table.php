@@ -25,6 +25,7 @@ class CreateFarmeriesTable extends Migration
             $table->String('irrigate_type');
             
             $table->BigInteger('production_quantity');
+            $table->BigInteger('price_kilo');
             $table->timestamps();
             $table->foreign('client_id')
                             ->references('id')

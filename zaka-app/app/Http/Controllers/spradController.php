@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Metels;
 use App\Models\Cattleranch;
 use App\Models\reseivable;
@@ -45,12 +45,16 @@ class spradController extends Controller
         
         $met->save();
                                    
-        return redirect('met');
+        return view('zaka.met',compact('met'));
     }
 
-    public function met(){
-        $met=Metels::all();
- 
+    public function met($id){
+        // $user = Auth::user(); // Retrieve the currently authenticated user...
+        // $id = Auth::id(); // Retrieve the currently authenticated user's ID...
+    
+        $met=Metels::where('id', Auth::id())->where('id', $id)->firstOrFail();
+        $met=Metels::find('id');
+
         return view('zaka.met', compact('met'));
     }
     
@@ -71,13 +75,14 @@ class spradController extends Controller
         $cat->location  =$request->location ;
         $cat->client_id=$request->client_id;
         $cat->save();                   
-        return redirect('calt');
+        return view('zaka.calt',compact('cat'));
     }
     
 
-    public function calt(){
-        $calt=Cattleranch::all(); 
-        return view('zaka.calt',compact('calt'));
+    public function calt($id){
+        $cat=Cattleranch::where('id', Auth::id())->where('id', $id)->firstOrFail();
+        $cat=Cattleranch::find('id');
+        return view('zaka.calt',compact('cat'));
     }
 
 

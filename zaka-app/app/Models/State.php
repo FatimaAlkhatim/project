@@ -12,7 +12,7 @@ class State extends Model
 {
     use HasFactory;
     protected $fillable = [
-      'name',
+      'state_name',
     ];
     
     public function client()

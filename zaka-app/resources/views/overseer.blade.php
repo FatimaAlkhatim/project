@@ -9,29 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
-
-
-
-
-
-
-
-
-
-
-
                
+                <div class="text-right">
+    <a href="{{ route('dashboard.over') }}" class="btn btn-secondary btn-sm">صفحة الدفع</a>
+
+    </div>
 
 
-
-
-
-
-
-
-
-                <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -62,34 +47,43 @@ tr:nth-child(even) {
   
   <th> التاريخ</th>
   <th> الصوره</th>
+  
     <th>نوع المستحق</th>
     <th> الحاله الاجتماعية</th>
-     <th> المحلية</th>
-    <th> الولايه</th>
+  
     <th> الموقع</th>
     <th>رقم الهاتف</th>
     <th>الرقم الوطني</th>
+    <th> المحلية</th>
+    <th> الولايه</th>
     <th >الاسم  </th>
+    
+
+    
+    
   </tr>
   </thead>
  
   <tbody>
-  @foreach($data as $reseivable)
+  @foreach($data as $row)
   <tr>
   
-  <td>{{$reseivable->created_at}}</td >  
+  <td>{{$row->created_at}}</td >  
   <td>
   <img src="/uploads/{{
-    $reseivable->image}}">
-  </td >  
-  <td>{{$reseivable->reseivable_type}}</td >  
-  <td>{{$reseivable->status}}</td >    
-  <td>{{$reseivable->local_id}}</td >   
-    <td>{{$reseivable->state_id}}</td>
-    <td>{{$reseivable->location}}</td>
-    <td>{{$reseivable->iphone}}</td>
-    <td>{{$reseivable->national}}</td>
-    <td>{{$reseivable->name}}</td>
+    $row->image}}">
+  </td > 
+   
+     <td>{{$row->reseivable_type}}</td >  
+      <td>{{$row->status}}</td >    
+     
+    <td>{{$row->location}}</td>
+    <td>{{$row->iphone}}</td>
+    <td>{{$row->national}}</td>
+    <td>{{$row->local_name}}</td>
+    <td>{{$row->state_name}}</td>
+    <td>{{$row->name}}</td >   
+   
   </tr>
   @endforeach
   <tbody>
@@ -105,37 +99,36 @@ tr:nth-child(even) {
   
 <form  action="{{url('addamount')}}" method="post">
     @csrf
+    
 
 <div class="mb-3">
   <input type="text" name="amount" class="form-control" id="exampleFormControlInput1" placeholder="  المبلغ أو الوصف"  style="width: 400px; text-align:right;">
 </div>
 <br>
+
 <!-- Recipients list -->
 <div class="md-3">
 <x-label :value="__('اختر  الاسم')"  />
 <select name="reseivable_id" style="width: 400px; text-align:right;">  
-    @foreach ($data as $reseivable)
+    @foreach ($re as $reseivable)
         <option value="{{ $reseivable->id }}">{{ $reseivable->name }}</option>
     @endforeach
 </select>
 </div>
 <br>
+
+<br>
 <button class="btn btn-info" style="width:200px; color:white; " >حفظ</button> 
   </form>
   </center>
 
+<!--  -->
+
+
+
 <br><br>
 
-
-
-  <!DOCTYPE html>
-
-
-
-
-
-
-
+<!DOCTYPE html>
 
 
 <html>
@@ -166,8 +159,11 @@ background-color: #dddddd;
 <thead>
 <tr>
 
-<th >  المبلغ  أو الوصف </th>
-<th >الاسم  </th>
+
+<th >المبلغ  </th>
+<th >  الاسم </th>
+
+
 
 
 
@@ -175,15 +171,22 @@ background-color: #dddddd;
 </thead>
 
 <tbody>
-@foreach($date as $selectt)
+@foreach($data as $row)
 <tr>
 
-<td>{{$selectt->amount}}</td>
 
-<td>{{$selectt->reseivable_id}}</td>
+<td>{{$row->amount}}</td>
+<td>{{$row->name}}</td>
+
+
 </tr>
+
+
 @endforeach
 <tbody>
+
+
+
 
 
 </table>
@@ -192,17 +195,6 @@ background-color: #dddddd;
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-  
                 </div>
             </div>
         </div>

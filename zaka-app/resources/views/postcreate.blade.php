@@ -13,98 +13,13 @@
 
 
 
+ <div class="text-right">
+    <a href="{{ route('dashboard.post') }}" class="btn btn-secondary btn-sm">صفحة التوزيع</a>
+
+    </div>
 
 
-
-
-
-
-                <html>
-<head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
-<!-- <h2>HTML Table</h2> -->
-<center>
-<table class="table col-md-6">
-  <thead>
-  <tr>
-  <th>العمليات</th>
-
-  <th >المبلغ  </th>
-  <th >الاسم  </th>
-
-    
-
-  </tr>
-  </thead>
- 
-  <tbody>
-  @foreach($date as $selectt)
-  <tr>
-  <td><a href="{{url('deletesel',$selectt->id)}}" class="btn btn-danger">حذف</a></td > 
-
-    <td>{{$selectt->amount}}</td>
-
-    <td>{{$selectt->reseivable_id}}</td>
-  </tr>
-  @endforeach
-  <tbody>
-
-
-</table>
-</center>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -132,41 +47,52 @@ tr:nth-child(even) {
 <table class="table col-md-6">
   <thead>
   <tr>
-  <th>العمليات</th>
+  <th > العمليات </th>
   <th> التاريخ</th>
   <th> الصوره</th>
+  
     <th>نوع المستحق</th>
     <th> الحاله الاجتماعية</th>
-     <th> المحلية</th>
-    <th> الولايه</th>
+  
     <th> الموقع</th>
     <th>رقم الهاتف</th>
     <th>الرقم الوطني</th>
+    <th> المحلية</th>
+    <th> الولايه</th>
     <th >الاسم  </th>
     <th >الرقم  </th>
-
+    
   </tr>
   </thead>
  
   <tbody>
-  @foreach($data as $reseivable)
+    
+  @foreach($data as $row)
   <tr>
-  <td><a href="{{url('deleteres',$reseivable->id)}}" class="btn btn-danger">حذف</a></td > 
-  <td>{{$reseivable->created_at}}</td >  
+    
+ 
+  
+   <td><a href="{{url('deleteres',$row->id)}}" class="btn btn-danger">حذف</a></td > 
+  
+
+
+<td>{{$row->created_at}}</td >  
   <td>
   <img src="/uploads/{{
-    $reseivable->image}}">
-  </td >  
-  <td>{{$reseivable->reseivable_type}}</td >  
-  <td>{{$reseivable->status}}</td >    
-  <td>{{$reseivable->local_id}}</td >   
-    <td>{{$reseivable->state_id}}</td>
-    <td>{{$reseivable->location}}</td>
-    <td>{{$reseivable->iphone}}</td>
-    <td>{{$reseivable->national}}</td>
-    <td>{{$reseivable->name}}</td>
-    <td>{{$reseivable->id}}</td>
-
+    $row->image}}">
+  </td > 
+   
+     <td>{{$row->reseivable_type}}</td >  
+      <td>{{$row->status}}</td >    
+     
+    <td>{{$row->location}}</td>
+    <td>{{$row->iphone}}</td>
+    <td>{{$row->national}}</td>
+    <td>{{$row->local_name}}</td>
+    <td>{{$row->state_name}}</td>
+    <td>{{$row->name}}</td >   
+    <td>{{$row->id}}</td >   
+   
   </tr>
   @endforeach
   <tbody>

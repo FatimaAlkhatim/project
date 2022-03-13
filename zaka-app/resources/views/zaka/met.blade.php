@@ -1,3 +1,5 @@
+
+
 <x-app-layout>
   <br><br><br>
 
@@ -7,38 +9,60 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                  <!-- value of farmers -->
-                 <div>
-                  
-                  @foreach($met as $metels)  
-                  @if($metels->production_quantity <= 85)
                 
-                  @if($metels->metels_type == 'ذهب')
+                  <form action="met,$metels->id">
+                  @csrf
+                  <div>
+                  @if($met->production_quantity >= 85)
+                
+                  @if($met->metels_type == 'ذهب')
                   
-                  <h3>{{$metels->production_quantity * 2.5 / 100}}</h3>
+                  <h3> زكاتك{{$met->production_quantity *25/ 2.5 / 100}}</h3>
                 
                   @endif
                   @endif
 
-                  @if($metels->production_quantity <= 595)
+                  @if($met->production_quantity >= 595)
+               
+                @if($met->metels_type == 'فضه')
                 
-                @if($metels->metels_type == 'فضه')
-                
-                <h3>{{$metels->production_quantity * 2.5 /100 }}</h3>
+                <h3> زكاتك {{$met->production_quantity * 322.54/ 2.5 /100 }}</h3>
               
                 @endif
                 @endif
-                 
-  
+                
+                <table  class="table col-md-6" style="padding-right:60px; ">
+<thead>
+        <tr >
+       
+          
+            <th >نوع المعدن</th>
+            <th> كمية الانتاج </th>
+            
+          
+        </tr>
+</thead>
+  <tr>
+    <td>
+    {{$met->metels_type}}    </td>
+    <td>
+    {{$met->production_quantity }}
+    </td>
+  </tr>
+</table>
+
+<div class="text-right">
+    <a href="{{ route('zaka.payment') }}" class="btn btn-secondary btn-sm"> ادفع زكاتك <i class="fa fa-credit-card"></i> </a>
+
+    </div>
+
+
                   
-                  
-                  @endforeach
                   </div>
-            <!-- end of value of farmers  -->
-
-
             </div>
             </div>
         </div>
     </div>
     </center>
+
     </x-app-layout>

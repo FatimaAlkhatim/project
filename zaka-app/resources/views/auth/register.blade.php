@@ -2,7 +2,8 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+              	<img src="{{asset('home/images/icons/images.jpeg')}}" width=130px; height=70px;/>
+
             </a>
         </x-slot>
 
@@ -49,7 +50,7 @@
                             <x-label for="role_id" value="{{ __(': نوع المستخدم') }}" />
                             <select name="role_id"style=" text-align:right;" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                                 <option value="user">مستحق</option>
-                                <option value="msk">مذكي</option>
+                                <option value="msk">مزكي</option>
                             </select>
                         </div>
             <div class="flex items-center justify-end mt-4">

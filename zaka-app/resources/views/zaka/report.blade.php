@@ -23,15 +23,56 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+    <div class="print">
 <center>
-    
-<div class="mb-6"> 
-  <input type="text"  class="form-control" id="exampleFormControlInput1" placeholder="  التاريخ"   style="width: 400px; text-align:right;">
-</div>
+<h5><u> الامانة العامة لديوان الزكاة   </u></h5>
     <br>
+    <h5><u>   تقرير  عن المعادن   في الفتره </u></h5>
+ 
+
+
+
+
+
+    <div  class="text-right " style="padding-right:60px;">
+    <button  class="print-btn btn btn-info">اطبع</button></div>
+    <form action="/Search_invoicess" method="POST" role="search" autocomplete="off">
+@csrf
+<div class="col-lg-3" id="start_at">
+                            <label for="exampleFormControlSelect1">من تاريخ</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                </div><input class="form-control " value="{{ $start_at ?? '' }}"
+                                    name="start_at" placeholder="YYYY-MM-DD" type="date">
+                            </div><!-- input-group -->
+                        </div>
+
+                        <div class="col-lg-3" id="end_at">
+                            <label for="exampleFormControlSelect1">الي تاريخ</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                </div><input class="form-control " name="end_at"
+                                    value="{{ $end_at ?? '' }}" placeholder="YYYY-MM-DD" type="date">
+                            </div><!-- input-group -->
+                        </div>
+                        <br>
+                        <button class="btn btn-info btn-lg">عرض</button>
+                </form>
+
+          
+
+    <!-- <a href="{{ route('export') }}" class="btn btn-success btn-sm">Export to PDF</a> -->
+<br>
 <table class="table col-md-6">
     <thead>
         <tr>
+        <th>  التاريخ</th>
             <th>كمية الانتاج</th>
             <th>نوع المعدن</th>
           
@@ -41,7 +82,11 @@ tr:nth-child(even) {
     <tbody>
         @foreach($data as $row)
         <tr>
-         
+        <td>
+
+{{$row->created_at}}
+
+</td>      
    
 <td>
 
@@ -66,4 +111,29 @@ tr:nth-child(even) {
     </tbody>
 </table>
 </center>
+</div>
+
+
+<script src="{{ asset('js/jquery-2.2.1.min.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $('.print-window').click(function()
+        
+        {
+
+          window.print();
+
+        });
+        
+      
+    });
+</script>
+
+
+<script>
+ $(document).on('click','.print-btn',function(){
+    $('.print').printThis();
+});
+</script>
+
 </x-app-layout>

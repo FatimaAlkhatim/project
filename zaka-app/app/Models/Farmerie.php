@@ -12,7 +12,7 @@ class Farmerie extends Model
     use HasFactory;
     
 protected $fillable = [
-    'projct_id' , 'area','location' , 'client_id','crope_type' , 'irrigate_type' , 'production_quantity',
+    'projct_id' , 'area','location' , 'client_id','crope_type' , 'irrigate_type' , 'production_quantity','created_at',
 ];
 
 public function client()

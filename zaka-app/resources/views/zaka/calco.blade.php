@@ -1,11 +1,11 @@
 <x-app-layout>
   <br><br><br>
 <center>
-
-
+<h3>احسب زكاتك</h3>
+<br>
 <a href="#" data-toggle="modal" data-target="#addModal" class="btn btn-success mb-3"> المزارع احسب ذكاتك </a>
  
-	<a href="#" data-toggle="modal" data-target="#add" class="btn btn-primary mb-3"> انعام احسب ذكاتك </a>
+	<a href="#" data-toggle="modal" data-target="#add" class="btn btn-info mb-3"> انعام احسب ذكاتك </a>
   <!-- <div class="text-left"style="margin:80px 40px 40px 40px; "> -->
 	<a href="#" data-toggle="modal" data-target="#Modal" class="btn btn-secondary mb-3"> معادن احسب ذكاتك </a>
 </center>
@@ -60,7 +60,10 @@
 </select>
 </div>
 
-
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label"style="float:right;"> سعر الكيلو</label>
+  <input type="text" name="price_kilo" class="form-control" id="exampleFormControlInput1" style="width: 400px; text-align:right;">
+</div>
 
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label"style="float:right;">كمية الانتاج</label>
@@ -70,10 +73,11 @@
 <div class="md-3">
 <x-label :value="__('اختر  اسمك')" style=" float:right"  />
 <select name="client_id" style="width: 400px; text-align:right;">  
-    @foreach ($date as $client)
-        <option value="{{ $client->id }}">{{ $client->name }}</option>
-    @endforeach
+    
+        <option value="{{ $date->id }}">{{ $date->name }}</option>
+    
 </select>
+
 </div>
 
 <br>
@@ -147,9 +151,9 @@
 <div class="md-3">
 <x-label :value="__('اختر  اسمك')" style=" float:right"  />
 <select name="client_id" style="width: 400px; text-align:right;">  
-    @foreach ($date as $client)
-        <option value="{{ $client->id }}">{{ $client->name }}</option>
-    @endforeach
+ 
+        <option value="{{ $date->id }}">{{ $date->name }}</option>
+   
 </select>
 </div>
 <br>
@@ -200,9 +204,9 @@
 <div class="md-3">
 <x-label :value="__('اختر  اسمك')" style=" float:right"  />
 <select name="client_id" style="width: 400px; text-align:right;">  
-    @foreach ($date as $client)
-        <option value="{{ $client->id }}">{{ $client->name }}</option>
-    @endforeach
+  
+        <option value="{{ $date->id }}">{{ $date->name }}</option>
+   
 </select>
 </div>
 <br>
@@ -307,12 +311,17 @@
       </div>
     </div>
   </div>
+
+  
+
+
+
+
 </div>
                 </div>
             </div>
         </div>
     </div>
     </center>
-
 
 </x-app-layout>

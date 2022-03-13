@@ -17,10 +17,17 @@ class CreateSelecttsTable extends Migration
             $table->id();
             $table->String('amount');
             $table->unsignedBigInteger('reseivable_id');
+            $table->unsignedBigInteger('payment_id')->nullable();
 
             $table->foreign('reseivable_id')
             ->references('id')
             ->on('reseivables')
+            ->onDelete("cascade");
+
+
+            $table->foreign('payment_id')
+            ->references('id')
+            ->on('payments')
             ->onDelete("cascade");
 
             $table->timestamps();

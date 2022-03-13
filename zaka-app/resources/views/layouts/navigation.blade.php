@@ -97,11 +97,31 @@
                 
             
 
-
+  @if (Auth::user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('zaka.show')" :active="request()->routeIs('zaka.show') " style="color:black;">
+                        {{ __(' تقرير المزارع') }} <i class="fa-solid fa-wheat-awn"></i>
+                    </x-nav-link>
+                </div>
+                @endif 
+                @if (Auth::user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('zaka.report')" :active="request()->routeIs('zaka.report')" style="color:black;">
+                      {{ __('  تقرير المعادن') }}
+                    </x-nav-link>
+                </div>
+                @endif 
+                @if (Auth::user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('zaka.print')" :active="request()->routeIs('zaka.print')" style="color:black;">
+                        {{ __('  تقرير الانعام') }}
+                    </x-nav-link>
+                </div>
+                @endif 
 
                 @if (Auth::user()->hasRole('committee'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')">
+                    <x-nav-link :href="route('messages.create')" :active="request()->routeIs('messages.create')" >
                         {{ __(' ارسل رساله') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
                 </div>
@@ -117,14 +137,22 @@
                 @endif 
 
               
-         
+       <!-- //homeeee   -->
  <h6 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;"> <a href="{{url('/dashboard')}}" style="color:black;">الصفحه الرئيسيه <i class="fas fa-home"></i>
  </a></h6>
+
+ @if (Auth::user()->hasRole('msk'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style=" color:black;">
+                    <x-nav-link :href="route('zaka.payment')" :active="request()->routeIs('zaka.payment')" style=" color:black;">
+                        {{ __('    ادفع زكاتك  ') }}<i class="fa fa-credit-card"></i> 
+                    </x-nav-link>
+                </div>
+                @endif 
  
  @if (Auth::user()->hasRole('msk'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
                     <x-nav-link :href="route('messages')" :active="request()->routeIs('messages.create')">
-                        {{ __('  تحقق من صفحة رسالئك ') }}<i class="fas fa-envelope"></i>  
+                        {{ __('  تحقق من صفحة رسائلك ') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
                 </div>
                 @endif 
@@ -132,15 +160,29 @@
  @if (Auth::user()->hasRole('user'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
                     <x-nav-link :href="route('messages')" :active="request()->routeIs('messages.create')">
-                        {{ __('  تحقق من صفحة رسالئك ') }}<i class="fas fa-envelope"></i>  
+                        {{ __('  تحقق من صفحة رسائلك ') }}<i class="fas fa-envelope"></i>  
                     </x-nav-link>
                 </div>
                 @endif 
+
+                @if (Auth::user()->hasRole('admin'))
+               <ul >
+               <li class="nav-item dropdown" style="padding: 15px; ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black; ">
+التقارير 
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ route('zaka.crope') }}" > زروع حسب نوع المحصول </a></li>
+           
+               </ul>
+               @endif 
             </div>
 
 
-            
-    <h3 style="padding: 10px;">زكاة<span style="color:red;">السودان</span></h3>
+     
+
+    <h3 style="padding: 10px">زكاة<span style="color:green;">السودان</span></h3>
+
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
@@ -148,19 +190,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
+      
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
@@ -171,3 +201,9 @@
         </div>
     </div>
 </nav>
+<script src="{{ asset('js/jquery-2.2.1.min.js') }}"></script>
+
+<script type="text/javascript" src="{{asset('core-2.8.4/package/dist/umd/popper.js')}}"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

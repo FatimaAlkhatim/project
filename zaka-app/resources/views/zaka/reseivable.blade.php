@@ -30,9 +30,9 @@
   <option >اختر ولايتك</option>
 
   @foreach ($sta as $state)
-  <option ></option>
+  
 
-        <option value="{{ $state->id }}">{{ $state->name }}</option>
+        <option value="{{ $state->id }}">{{ $state->state_name }}</option>
 
     @endforeach
   </select>
@@ -44,9 +44,9 @@
   <option >اختر محليتك</option>
 
   @foreach ($lo as $local)
-  <option ></option>
+  
 
-        <option value="{{ $local->id }}">{{ $local->name }}</option>
+        <option value="{{ $local->id }}">{{ $local->local_name }}</option>
     @endforeach
   </select>
   <button class="btn btn-outline-secondary" type="button"><a href="{{url('local')}}">اضف محليتك</a></button>

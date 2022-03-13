@@ -4,41 +4,42 @@
         <h3><a href="{{url('/messages')}}" style= "color:black;  padding:500px;float:center">صفحة الرسائل</a></h3>
 
         </h2> -->
-      
+        <!-- <br><br>
+        <div class="text-center">
+		<a href="{{ url('show') }}" class="btn btn-success"> صفحة تقرير   المزارع
+
+
+        </a>
+	</div>
+
+    <div class="text-center">
+		<a href="{{ url('report') }}" class="btn btn-secondary "> صفحة تقرير المعادن
+
+
+        </a>
+	</div>
+   
+    <div class="text-center">
+		<a href="{{ url('print') }}" class="btn btn-info"> صفحة تقرير الانعام
+
+
+        </a>
+	</div> -->
     <div class="py-12 mt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- You're logged in! -->
                    
-                    <div class="text-right">
-		<a href="{{ url('show') }}" class="btn btn-success"> صفحة تقرير   المزارع
-
-
-        </a>
-	</div>
-    <br>
-    <div class="text-right">
-		<a href="{{ url('report') }}" class="btn btn-secondary "> صفحة تقرير المعادن
-
-
-        </a>
-	</div>
-    <br>
-    <div class="text-right">
-		<a href="{{ url('print') }}" class="btn btn-info"> صفحة تقرير الانعام
-
-
-        </a>
-	</div>
-<br><br>
+                   
+<br>
   <div class="row">
   <div class="col-sm-6 ">
     <div class="card  text-dark bg-secondary ">
     <h5 class="card-header" style="text-align:center;"> ....خدمات المذكين</h5>
 
       <div class="card-body">
-      <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white;  text-align:center;">الذهاب الي خدمات المذكين</a></h5>
+      <h5 style="text-align:center; "><a href="{{ url('index') }}" style="color:black;  text-align:center;">الذهاب الي خدمات المذكين</a></h5>
 
       <!-- <h5 style="text-align:center;"><a href="{{ url('index') }}" style="color:white; ">الذهاب الي خدمات المذكين</a></h5> -->
         <p class="card-text"style="  text-align:right;">
@@ -54,8 +55,8 @@
     <h5 class="card-header" style="text-align:center;"> ....خدمات المستحقين</h5>
 
       <div class="card-body">
-      <h5 style="text-align:center;"><a href="{{ url('reseivable') }}" style="color:white;  text-align:center;">الذهاب الي خدمات المستحقين</a></h5>
-        <p class="card-text"style="  text-align:right;"> 
+      <h5 style="text-align:center;"><a href="{{ url('reseivable') }}" style="color:black;  text-align:center;">الذهاب الي خدمات المستحقين</a></h5>
+        <p class="card-text"style="text-align:right;"> 
         
         
                                 المصارف الشرعيه الثمانيه اجمع عليها العلماء حيث انها حددت بالنص القراني وبالسنه الصحيحه والمتواتره وباجماع العلماء  فالنصوص قطعيه الدلاله علي عددها ولكنها ظنية الدلاله  في مفهومها
