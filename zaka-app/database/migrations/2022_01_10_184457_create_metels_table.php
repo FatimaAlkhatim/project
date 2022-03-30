@@ -16,17 +16,24 @@ class CreateMetelsTable extends Migration
         Schema::create('metels', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id');
-           
+            $table->unsignedBigInteger('met_id');
+
 
             $table->String('image');
             $table->String('location');
-            $table->String('metels_type');
            
             $table->BigInteger('production_quantity');
+            $table->BigInteger('pricey')->nullable();
             $table->timestamps();
+
             $table->foreign('client_id')
             ->references('id')
             ->on('clients')
+            ->onDelete("cascade");
+
+            $table->foreign('met_id')
+            ->references('id')
+            ->on('mets')
             ->onDelete("cascade");
             
           

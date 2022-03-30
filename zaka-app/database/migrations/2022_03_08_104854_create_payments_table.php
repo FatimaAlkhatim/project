@@ -16,14 +16,9 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
            
-            $table->BigInteger('card_number');
-            $table->BigInteger('card_num');
-            $table->BigInteger('iphone_py');
+            $table->BigInteger('acount_number');
+            $table->BigInteger('acount_num');
             $table->BigInteger('amount_py');
-           
-          
-          
-
             $table->timestamps();
         });
     }

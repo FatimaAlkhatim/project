@@ -1,5 +1,7 @@
+
 <x-app-layout>
-<br>
+<br><br><br>
+
 <center>
 <form  action="{{url('addclient')}}" method="post">
     @csrf
@@ -47,10 +49,10 @@
 <br>
 
 <div class="mb-3">
-<x-label  value="{{ __('  نوع المزكي ') }}" />
+<!-- <x-label  value="{{ __('  نوع المزكي ') }}" /> -->
 <select name="client_type" style="width: 400px; text-align:right;">
 
-
+<option>نوع المزكي</option>
 <option>مزارع </option>
 <option>معادن  </option>
 <option> انعام </option>

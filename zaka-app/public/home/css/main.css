@@ -818,9 +818,10 @@ top:250px;
 
 .mianslider{
   position: relative;
-  max-width: 1500px !important;
+  max-width: 1200px !important;
   margin: 0 auto;
   overflow: hidden;
+  
 }
 .slicksslider{
   position: relative;
@@ -1244,7 +1245,12 @@ color: #000;
 .wrap-table-shopping-cart {
   overflow: auto;
 }
+.IME{
+  width: 280px;
+  height: 300px;
+  border-radius: 20px ;
 
+}
 .container-table-cart::before {
   content: '';
   display: block;

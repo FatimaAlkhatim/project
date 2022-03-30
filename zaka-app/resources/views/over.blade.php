@@ -13,7 +13,44 @@
 
 
 
+                <center>
+  
+                <form  action="{{url('addamount')}}" method="post">
+    @csrf
+    
+
+<div class="mb-3">
+  <input type="text" name="amount" class="form-control" id="exampleFormControlInput1" placeholder="  المبلغ أو الوصف"  style="width: 400px; text-align:right;" required >
+</div>
+<br>
+
+<!-- Recipients list -->
+<div class="md-3">
+<!-- <x-label :value="__('اختر  الاسم')"  /> -->
+<select name="reseivable_id" style="width: 400px; text-align:right; ">  
+<option>اختر الاسم</option>
+
+    @foreach ($re as $reseivable)
+        <option value="{{ $reseivable->id }}">{{ $reseivable->name }}</option>
+    @endforeach
+</select>
+</div>
+<br>
+
+<br>
+<button class="btn btn-info" style="width:200px; color:white; " >حفظ</button> 
+  </form>
+  </center>
+
+<!--  -->
+
+
+
+<br><br>
+
 <!DOCTYPE html>
+
+
 <html>
 <head>
 <style>
@@ -37,13 +74,15 @@ background-color: #dddddd;
 <body>
 
 <!-- <h2>HTML Table</h2> -->
-<!-- <center>
-<table class="table col-md-6">
+<center>
+<table class="table col-md-6" dir="rtl">
 <thead>
 <tr>
 
 
 <th >المبلغ  </th>
+<th >  الاسم </th>
+
 
 
 
@@ -51,98 +90,33 @@ background-color: #dddddd;
 </tr>
 </thead>
 
-<tbody> -->
-<!-- @foreach($pp as $row)
+<tbody>
+@foreach($data as $row)
 <tr>
 
+
 <td>{{$row->amount}}</td>
+<td>{{$row->name}}</td>
+
 
 </tr>
 
 
-
-
 @endforeach
-<tbody> -->
+<tbody>
 
 
 
 
-</table>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
-<!-- <h2>HTML Table</h2> -->
-<center>
-<table class="table col-md-6">
-  <thead>
-  <tr>
-  
-  
-  <th> رقم البطاقه</th>
-    <th> البطاقه</th>
-    <th> رقم الهاتف</th>
-    <th >المبلغ  </th>
-    
-
-    
-    
-  </tr>
-  </thead>
- 
-  <tbody>
-  @foreach($tt as $payment)
-  <tr>
-  
- 
-  
-     <td>{{$payment->card_number}}</td >  
-      <td>{{$payment->card_num}}</td >    
-     
-    <td>{{$payment->iphone_py}}</td>
-    <td>{{$payment->amount_py}}</td>
-  
-  </tr>
- 
-     
-       
-  @endforeach
-  
-       
-       
- 
-  @php
-  echo 'payment','','', $sum ;
-  @endphp
-      
-  
-         
-  <tbody>
 
 </table>
+</center>
+</body>
+</html>
+
+
+
+
                 </div>
             </div>
         </div>

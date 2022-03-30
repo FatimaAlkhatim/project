@@ -67,7 +67,7 @@ tr:nth-child(even) {
 <table class="table col-md-6">
     <thead>
         <tr>
-        <th>  التاريخ</th>
+      
         <th>  رقم الهاتف</th>
             <th>عدد الانعام </th>
             <th>نوع الانعام</th>
@@ -77,11 +77,7 @@ tr:nth-child(even) {
     <tbody>
         @foreach($data as $row)
         <tr>
-        <td>
-
-   {{$row->created_at}}
-
-</td>   
+       
          
 <td>
 

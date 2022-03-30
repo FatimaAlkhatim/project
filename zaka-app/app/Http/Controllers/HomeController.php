@@ -20,7 +20,10 @@ use PDF;
 use Maatwebsite\Excel\Concerns\ToModel;
 use App\Exports\FarmerieExport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use App\Models\Crope;
+use App\Models\Met;
+use App\Models\Farm;
+use App\Models\Cro;
 
 
 
@@ -56,6 +59,8 @@ return view('zaka.index',compact('date','lo'));
 public function addclient(Request $request){
     $name = Auth::user()->name;
     // dd($name);
+    $names = $request->client_type;
+
 $date= new client;  
 $date->name=$name;
 $date->national=$request->national;
@@ -65,8 +70,30 @@ $date->local_id=$request->local_id;
 $date->client_type=$request->client_type;
 
 $date->save();
+$crops=Crope::all();
+$cros=Cro::all();
 
-return view('zaka.calco',compact('date'));
+$me=Met::all();
+// dd($crops);
+
+if($names == 'مزارع')
+{
+    $crops=Crope::all();
+    $cros=Cro::all();
+
+  return view('zaka.farms',compact('crops','date','cros'));
+
+
+}
+
+elseif($names == 'معادن'){
+
+    $me=Met::all();
+  return view('zaka.metss',compact('me','date'));
+}
+
+return view('zaka.calco',compact('date', 'crops', 'me','cros'));
+
 
 
 }
@@ -139,19 +166,53 @@ return view('zaka.calco',compact('date','lo'));
 
 //add farmerie
 public function addfarm(Request $request){
+$kilo = Crope::where('id',$request->crope_id)->value('cropes.crope_price');
+
+$inname = $request->irrigate_type;
+// dd($inname);
+if($inname == 'مطري' && $request->production_quantity >= 653)
+{
+   
+    $kilo = $kilo / 10 / 100 ;
+
+
+}
+
+elseif($inname == 'الاله' && $request->production_quantity >= 653){
+    
+    $kilo = $kilo / 5 /100 ;
+
+}
+elseif($inname == 'تكميلي' && $request->production_quantity >= 653){
+    
+    $kilo = $kilo / 7.5 / 100 ;
+}
+
+else{
+    $kilo = 0;
+}
+
+$price = $kilo * $request->production_quantity ;
+// dd($price);
+
 $info= new farmerie; 
 $info->projct_id=$request->projct_id;
-$info->area=$request->area;
+$info->area=$request->area; 
 $info->location=$request->location;
-$info->crope_type=$request->crope_type;
+$info->crope_id=$request->crope_id;
 $info->irrigate_type=$request->irrigate_type;
 $info->production_quantity=$request->production_quantity;
 $info->client_id=$request->client_id;
-$info->price_kilo=$request->price_kilo;
+$info->price_kilo=$price;   
 
 $info->save();
 
-return view('zaka.complet',compact('info'));
+$user_id = DB::table('clients')->latest()->first('id')->id;
+// dd($user_id->id);
+$fa = Crope::where('id',$request->crope_id)->value('cropes.crope_name');
+// dd($farr);
+
+return view('zaka.complet',compact('info','fa'));
 
 
 }
@@ -166,20 +227,36 @@ public function calco($id){
 $clients=Client::where('id', Auth::id())->where('id', $id)->firstOrFail();
 $date=Client::find('id');
 
-$sta=State::all();
-$lo=Local::all();
+// $info=Farmerie::join('cropes', 'farmeries.crope_id' , '=' , 'cropes.id')->
+// get('farmeries.*', 'cropes.crope_name');
 $info=Farmerie::all();
 $met=Metels::all();
 $cat=Cattleranch::all();
-return view('zaka.calco',compact('date','sta','lo','info','met','cat'));
+$crops=Crope::all();
+dd($crops);
+$date=Met::all();
+
+return view('zaka.calco',compact('date','crops','info','met','cat'));
 }
+
+
+public function calc(){
+
+    $crop=Crope::all();
+    $mt=Met::all();
+    
+    return view('zaka.calco',compact('crop','mt'));
+    }
+    
 
 
 
 //account of farmerie
 public function complet($id){
 $farmeries= Farmerie::where('id', Auth::id())->where('id', $id)->firstOrFail();
+
 $info=Farmerie::find('id');
+
 
 return view('zaka.complet',compact('info'));
 }
@@ -202,13 +279,15 @@ public function show(Request $request)
 
 
 $data = Client::join('farmeries','farmeries.client_id','=','clients.id')
+->join('cropes','cropes.id','=','farmeries.crope_id')
+
 // ->('farmerie','farmerie.client_id','=','client.id')
 
 // $result = DB::table('clients')
 // ->leftJoin('farmeries','client_id',"=",'farmeries.client_id')
 
 // ->select('clients.name as clientName')
-->get(['clients.name','farmeries.irrigate_type','farmeries.production_quantity','farmeries.location','farmeries.crope_type','farmeries.created_at']);
+->get(['cropes.crope_name','clients.name','farmeries.irrigate_type','farmeries.production_quantity','farmeries.location','farmeries.created_at']);
 
 
 
@@ -279,8 +358,9 @@ return view('zaka.show',compact('data'));
 public function report()
 {
 $data = Client::join('metels','metels.client_id','=','clients.id')
+->join('mets','mets.id','=','metels.met_id')
 
-->get(['clients.name','metels.metels_type','metels.production_quantity','metels.created_at']);
+->get(['mets.met_name','clients.name','metels.production_quantity','metels.created_at']);
 
 return view('zaka.report',compact('data'));
 }
@@ -308,8 +388,10 @@ public function Search_invoices(Request $request)
     //   $farmeries= Farmerie::whereBetween('created_at',[$start_at,$end_at])->get();
         
 $data = Client::whereBetween('farmeries.created_at',[$start_at,$end_at])->join('farmeries','farmeries.client_id','=','clients.id')
+->join('cropes','cropes.id','=','farmeries.crope_id')
 
-->get(['clients.name','farmeries.irrigate_type','farmeries.production_quantity','farmeries.location','farmeries.crope_type','farmeries.created_at']);
+
+->get(['cropes.crope_name','clients.name','farmeries.irrigate_type','farmeries.production_quantity','farmeries.location','farmeries.created_at']);
         return view('zaka.show',compact('start_at','end_at','data'))->withDetails($data);
           
 } 
@@ -330,8 +412,9 @@ $end_at = date($request->end_at);
 
 
 $data = Client::whereBetween('metels.created_at',[$start_at,$end_at])->join('metels','metels.client_id','=','clients.id')
+->join('mets','mets.id','=','metels.met_id')
 
-->get(['clients.name','metels.metels_type','metels.production_quantity','metels.created_at']);
+->get(['clients.name','mets.met_name','metels.production_quantity','metels.created_at']);
 
 //   $metels= Metels::whereBetween('created_at',[$start_at,$end_at])->get();
 return view('zaka.report',compact('start_at','end_at','data'))->withDetails($data);
@@ -360,6 +443,11 @@ return view('zaka.print',compact('start_at','end_at','data'))->withDetails($data
 
 
 
+public function farms(){
+    $crops=Crope::all();
+
+    return view('zaka.farms',compact('crops'));
+}
 
 
 

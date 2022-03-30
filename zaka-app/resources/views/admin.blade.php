@@ -31,7 +31,21 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- You're logged in! -->
                    
-                   
+<!--             
+<div class="text-center">
+    <a href="{{ route('zaka.cropety') }}" class="btn btn-secondary btn-sm">صفحة اضافة المحاصيل</a>
+
+    </div> 
+    <br>      
+    <div class="text-center">
+    <a href="{{ route('zaka.metty') }}" class="btn btn-secondary btn-sm">صفحة اضافة المعادن</a>
+
+    </div> 
+    <br>      
+    <div class="text-center">
+    <a href="{{ route('zaka.count') }}" class="btn btn-secondary btn-sm">صفحة اضافة حسابات العملاء</a>
+
+    </div>  -->
 <br>
   <div class="row">
   <div class="col-sm-6 ">

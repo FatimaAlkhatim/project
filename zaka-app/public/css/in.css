@@ -1,0 +1,337 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body, input{
+    font-family: 'Poppins',sans-serif;
+direction: rtl;
+}
+.container{
+    position: relative;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+}
+.forms-container{
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+}
+
+form{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+padding: 0 5rem;
+padding: 0 5rem;
+grid-column:1 / 2 ;
+grid-row: 1 / 2;
+}
+
+.title{
+    font-size: 2.2rem;
+    color: #444;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+.input-field{
+    max-width: 400px;
+    width: 100%;
+    height: 45px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns:15% 85% ;
+    padding: 0 0.4rem;
+    position: relative;
+    border: #0ea12e 2px solid;
+    margin-left: 40px;
+}
+
+.input-field i{
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    font-size: 1.5rem;
+}
+.input-field input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+
+}
+.input-field input:placeholder-shown{
+    color: black;
+    font-weight: 500;
+}
+.btn{
+    width: 150px;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 48px;
+    cursor: pointer;
+    background-color: #25993e;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition:all 0.5s;
+    margin-left: 60px;
+}
+.mt-4{
+    margin-left: 50px;
+}
+.btn:hover{
+    background-color: #0f6925;
+}
+.social-text{
+    padding: 0.7rem 0;
+}
+.social-text:hover{
+color: #0ea12e;
+}
+.logins{
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+.social-media{
+    
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+}
+.social-icon{
+    height: 40px;
+    width: 40px;
+    border: 1px solid #333;
+    margin: 0 0.45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    transition:all 0.5s;
+}
+.social-icon:hover{
+color: #0ea12e;
+border-color: #0ea12e ;
+text-decoration: none;
+}
+
+.signin-signup{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  
+}
+.container::before{
+    content: '';
+    position:absolute;
+    height: 2000px;
+    width: 2000px;
+    top: -10%;
+    right: 50%;
+    background-image:linear-gradient(150deg,rgb(98, 158, 101),rgba(109, 155, 95, 0.667)),url(../SliderImg01-ar.jpg);
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+.mbb-4{
+    margin-left: 300px;
+    margin-bottom: 400px;
+    margin-top: 0;
+    text-align: center;
+  
+}
+/* تأكيد كلمة المرور للبريد*/
+.input-fields{
+    max-width: 400px;
+    width: 100%;
+    height: 45px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns:15% 85% ;
+    padding: 0 0.4rem;
+    position: relative;
+    border: #0ea12e 2px solid;
+      margin-top: 100px; 
+}
+
+.input-fields i{
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    font-size: 1.5rem;
+}
+.input-fields input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+
+}
+.input-fields input:placeholder-shown{
+    color: black;
+    font-weight: 500;
+}
+.btns{
+    width: 300px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: #25993e;
+    color: #fff;
+    text-align: center;
+    
+    font-weight: 600;
+    margin: 5px 0;
+    transition:all 0.5s;
+    
+}
+.btns:hover{
+    background-color: #0f6925;
+}
+
+.mbd-4{
+    margin-right: 100px;
+}
+/*/////////*/
+/* تسجيل جديد*/
+.sign-up-form{
+   padding-right: 10px;
+   margin-right: 10px;
+   padding-left: 150px;
+   margin-left: 150px;
+   align-items: center;
+}
+.inputup-field{
+    max-width: 600px;
+    width: 100%;
+    height: 45px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns:15% 85% ;
+    padding: 0 0.4rem;
+    position: relative;
+    border: #0ea12e 2px solid;
+   margin-left: 100px; 
+}
+
+.inputup-field i{
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    font-size: 1.5rem;
+}
+.inputup-field input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+
+}
+.inputup-field input:placeholder-shown{
+    color: black;
+    font-weight: 500;
+}
+.btnup{
+    width: 150px;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 48px;
+    cursor: pointer;
+    background-color: #25993e;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition:all 0.5s;
+    margin-left: 100px;
+}
+.btnup:hover{
+    background-color: #0f6925;
+}
+.titles{
+    font-size: 2.2rem;
+    color: #444;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-left: 60px;
+}
+.mbs-4{
+    margin-left: 300px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: center;
+  
+}
+select{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;  
+}
+.socials-text{
+    padding: 0.7rem 0;
+    margin-left: 100px;
+}
+.socials-media{
+    
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+}
+.socials-icon{
+    height: 40px;
+    width: 40px;
+    border: 1px solid #333;
+    margin: 0 0.45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    transition:all 0.5s;
+}
+.socials-icon:hover{
+color: #0ea12e;
+border-color: #0ea12e ;
+text-decoration: none;
+}
+.sign-up-form{
+    position: absolute;
+  left: 40%;
+  margin-right: 30px;
+}

@@ -12,7 +12,11 @@
                   
                   @if($cat->cattleranch_type == 'ابل')
 
-                  @if($cat->cattleranch_amount <=9 )
+                  @if($cat->cattleranch_amount < 5  )
+
+                   <h3> لا زكاة عليها </h3>
+
+                   @elseif($cat->cattleranch_amount <=9  )
 
                   <h3> زكاتك شاة</h3>
 
@@ -142,12 +146,12 @@
   </tr>
 </table>
 
-     
+ 
+      
 <div class="text-right">
-    <a href="{{ route('zaka.payment') }}" class="btn btn-secondary btn-sm"> ادفع زكاتك <i class="fa fa-credit-card"></i> </a>
+    <a href="{{ route('zaka.pys') }}" class="btn btn-secondary btn-sm"> ادفع زكاتك <i class="fa fa-credit-card"></i> </a>
 
     </div>
-      
                 
                   </div>
           

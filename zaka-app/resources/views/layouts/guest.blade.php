@@ -9,12 +9,20 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        
 
+  <script src="{{ asset('js/jquery-2.2.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+        
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+        <link rel="stylesheet" href="{{ asset('css/in.css') }}">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

@@ -60,9 +60,9 @@
 <br>
 
 <div class="mb-6">
-  <x-label  value="{{ __('الحاله الاجتماعيه') }}" />
+  <!-- <x-label  value="{{ __('الحاله الاجتماعيه') }}" /> -->
                             <select name="status"style="width: 400px; text-align:right;">
-                        
+                        <option>الحاله الاجتماعيه </option>
                             <option>متزوج</option>
                                 <option>اعذب</option>
                                 
@@ -74,10 +74,10 @@
 
 <br>
 <div class="mb-6">
-  <x-label  value="{{ __(' نوع المستحق') }}" />
+  <!-- <x-label  value="{{ __(' نوع المستحق') }}" /> -->
                             <select name="reseivable_type"style="width: 400px; text-align:right;">
                         
-
+<option>نوع المستحق</option>
                                 <option> الارامل </option>
 
                                 <option>الغارمين</option>

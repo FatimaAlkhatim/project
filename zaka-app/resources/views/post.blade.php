@@ -39,7 +39,8 @@ tr:nth-child(even) {
 <table class="table col-md-6">
   <thead>
   <tr>
-  <th>العمليات</th>
+  <th>الحذف</th>
+  <th>التعديل</th>
 
   <th >المبلغ  </th>
   <th >  الاسم </th>
@@ -55,6 +56,7 @@ tr:nth-child(even) {
   @foreach($data as $row)
   <tr>
   <td><a href="{{url('deletesel',$row->id)}}" class="btn btn-danger">حذف</a></td > 
+  <td><a class="btn btn-info" href="{{url('updatass',$row->id)}}">تعديل</a></td > 
 
     <td>{{$row->amount}}</td>
     <td>{{$row->name}}</td>
@@ -64,7 +66,11 @@ tr:nth-child(even) {
   @endforeach
   <tbody>
 
-
+<h4>
+  @php
+  echo 'الخزينه','','', '', '',$sum ;
+  @endphp
+  </h4>
 
 
 

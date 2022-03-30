@@ -14,7 +14,7 @@
 <center>
     <h5><u> الامانة العامة لديوان الزكاة   </u></h5>
     <br>
-    <h5><u>   تقرير عن المزارعين  حسب نوع المحصول   </u></h5>
+    <h5><u>   تقرير عن الزروع  حسب نوع المحاصيل  التي توزن  </u></h5>
   
     
 
@@ -28,14 +28,15 @@
     @csrf
 
 <!-- Recipients list -->
-<!-- <div class="mb-3 " >
+<div class="mb-3 " >
 <x-label :value="__(' انواع المحاصيل')"  />
-<select name="crope_type" id="crope_type" style="width: 400px; text-align:right;">  
+<select name="crope_id" id="crope_id" style="width: 400px; text-align:right;">  
 @foreach($data as $row)
-        <option value="{{$row->id}}">{{$row->crope_type}}</option>
+        <option value="{{$row->id}}">{{$row->crope_name}}</option>
     @endforeach
 </select>
-</div> -->
+</div>
+
 <center>
 <table class="table col-md-6" style="padding-right:60px;  text-align:center; ">
 <thead>
@@ -44,6 +45,7 @@
 <th>نوع الري</th>
 <th>نوع المحصول</th>
 <th>الاسم</th>
+<th>رقم المحصول</th>
 </tr>
 </thead>
 <tbody>
@@ -56,11 +58,14 @@
 {{$row->irrigate_type}}
 </td>
 <td>
-{{$row->crope_type}}
+{{$row->crope_name}}
 </td>
 
 <td>
 {{$row->name}}
+</td>  
+<td>
+{{$row->id}}
 </td>  
  
 </tr>
@@ -69,7 +74,7 @@
 </table>
 </center>
 <br>
-<input type="text" id="crope_type" name="crope_type"  style=" text-align:right;">
+<!-- <input type="text" id="crope_id" name="crope_id"  style=" text-align:right;"> -->
 <br>
 <br>
 <button class="btn btn-info btn-lg">عرض</button>

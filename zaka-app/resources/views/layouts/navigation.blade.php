@@ -95,26 +95,49 @@
                 </div>
                 @endif
                 
+               <!-- @if (Auth::user()->hasRole('admin'))
+               <ul >
+               <li class="nav-item dropdown" style="padding: 10px; ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black; ">
+          المحاصيل 
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="{{ route('zaka.cropety') }}" >  المحاصيل التي توزن    </a></li>
+          <li><a class="dropdown-item" href="{{ route('zaka.cro') }}" >  المحاصيل التي تكال    </a></li>
+
+
+               </ul>
+               @endif  -->
             
 
   @if (Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('zaka.show')" :active="request()->routeIs('zaka.show') " style="color:black;">
-                        {{ __(' تقرير المزارع') }} <i class="fa-solid fa-wheat-awn"></i>
+                    <x-nav-link :href="route('zaka.cropety')" :active="request()->routeIs('zaka.cropety') " style="color:black;">
+                        {{ __('     المحاصيل التي توزن') }} <i class="fa-solid fa-wheat-awn"></i>
+                    </x-nav-link>
+                </div>
+                @endif 
+
+                @if (Auth::user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('zaka.cro')" :active="request()->routeIs('zaka.cropety') " style="color:black;">
+                        {{ __('  المحاصيل التي تكال') }} <i class="fa-solid fa-wheat-awn"></i>
+                    </x-nav-link>
+                </div>
+                @endif 
+
+
+                @if (Auth::user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('zaka.metty')" :active="request()->routeIs('zaka.metty')" style="color:black;">
+                      {{ __('       المعادن') }}
                     </x-nav-link>
                 </div>
                 @endif 
                 @if (Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('zaka.report')" :active="request()->routeIs('zaka.report')" style="color:black;">
-                      {{ __('  تقرير المعادن') }}
-                    </x-nav-link>
-                </div>
-                @endif 
-                @if (Auth::user()->hasRole('admin'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('zaka.print')" :active="request()->routeIs('zaka.print')" style="color:black;">
-                        {{ __('  تقرير الانعام') }}
+                    <x-nav-link :href="route('zaka.count')" :active="request()->routeIs('zaka.count')" style="color:black;">
+                        {{ __('    حسابات') }}
                     </x-nav-link>
                 </div>
                 @endif 
@@ -138,16 +161,16 @@
 
               
        <!-- //homeeee   -->
- <h6 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;"> <a href="{{url('/dashboard')}}" style="color:black;">الصفحه الرئيسيه <i class="fas fa-home"></i>
+ <h6 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 20px; color:black;"> <a href="{{url('/dashboard')}}" style="color:black;">الصفحه الرئيسيه <i class="fas fa-home"></i>
  </a></h6>
 
- @if (Auth::user()->hasRole('msk'))
+ <!-- @if (Auth::user()->hasRole('msk'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style=" color:black;">
                     <x-nav-link :href="route('zaka.payment')" :active="request()->routeIs('zaka.payment')" style=" color:black;">
                         {{ __('    ادفع زكاتك  ') }}<i class="fa fa-credit-card"></i> 
                     </x-nav-link>
                 </div>
-                @endif 
+                @endif  -->
  
  @if (Auth::user()->hasRole('msk'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="padding: 25px; color:black;">
@@ -167,21 +190,60 @@
 
                 @if (Auth::user()->hasRole('admin'))
                <ul >
-               <li class="nav-item dropdown" style="padding: 15px; ">
+               <li class="nav-item dropdown" style="padding: 10px; ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black; ">
 التقارير 
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('zaka.crope') }}" > زروع حسب نوع المحصول </a></li>
-           
+          <li><a class="dropdown-item" href="{{ route('zaka.report') }}" >  تقرير المعادن    </a></li>
+          <li><a class="dropdown-item" href="{{ route('zaka.print') }}" >   تقرير الانعام </a></li>
+          <li><a class="dropdown-item" href="{{ route('zaka.show') }}" >  تقرير الزروع التي توزن </a></li>
+
+          <li><a class="dropdown-item" href="{{ route('zaka.shew') }}" >  تقرير الزروع  التي تكال </a></li>
+
+            <li><a class="dropdown-item" href="{{ route('zaka.crope') }}" > زروع حسب نوع المحاصيل التي توزن </a></li>
+            <li><a class="dropdown-item" href="{{ route('zaka.crop') }}" > زروع حسب نوع المحاصيل التي تكال </a></li>
+
                </ul>
                @endif 
+
+
+
+               
             </div>
 
 
-     
+            @if (Auth::user()->hasRole('msk'))
 
-    <h3 style="padding: 10px">زكاة<span style="color:green;">السودان</span></h3>
+    <h3 style="padding: 10px ; margin-left:450px; ">زكاة<span style="color:green;">السودان</span></h3>
+    <img src="{{asset('home/images/icons/images.jpeg')}}" width=35px; height=10px;/>
+@endif
+
+@if (Auth::user()->hasRole('overseer'))
+
+<h3 style="padding: 10px ; margin-left:450px; ">زكاة<span style="color:green;">السودان</span></h3>
+<img src="{{asset('home/images/icons/images.jpeg')}}" width=35px; height=10px;/>
+@endif
+
+@if (Auth::user()->hasRole('committee'))
+
+<h3 style="padding: 10px ; margin-left:300px; ">زكاة<span style="color:green;">السودان</span></h3>
+<img src="{{asset('home/images/icons/images.jpeg')}}" width=35px; height=10px;/>
+@endif
+
+@if (Auth::user()->hasRole('user'))
+
+<h3 style="padding: 10px ; margin-left:480px; ">زكاة<span style="color:green;">السودان</span></h3>
+<img src="{{asset('home/images/icons/images.jpeg')}}" width=35px; height=10px;/>
+@endif
+
+@if (Auth::user()->hasRole('admin'))
+<h3 style="padding:8px; margin-left:15px;">زكاة<span style="color:green;">السودان</span></h3>
+<img src="{{asset('home/images/icons/images.jpeg')}}" width=35px; height=10px;/>
+@endif
+
+
+
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

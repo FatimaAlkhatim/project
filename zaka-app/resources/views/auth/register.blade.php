@@ -1,67 +1,87 @@
+<div class="container">
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-              	<img src="{{asset('home/images/icons/images.jpeg')}}" width=130px; height=70px;/>
-
+              
             </a>
         </x-slot>
+               
 
+        <div class="formup-container">
+    <div class="signup-signin">
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('register') }}">
+        <x-auth-validation-errors class="mbs-4" :errors="$errors" />
+       
+        <form method="POST" action="{{ route('register') }}"  class="sign-up-form">
             @csrf
 
             <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('الاسم')" />
+            <h2 class="titles">تسجيل جديد</h2>
+<div class="inputup-field">
+  <i class="fa fa-user"></i>
 
-                <x-input id="name" style=" text-align:right;" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" style=" text-align:right;" class="myinput"
+                 type="text" name="name" :value="old('name')" placeholder="اسم المستخدم" required autofocus />
             </div>
 
             <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('البريد الاكتروني')" />
-
-                <x-input id="email" style="text-align:right;" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="inputup-field">
+  <i class="fa fa-envelope"></i>
+                <x-input id="email" style="text-align:right;" class="myinput"
+                 type="email" name="email" :value="old('email')" placeholder="البريد الالكتروني" required />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('كلمه السر')" />
-
-                <x-input id="password" class="block mt-1 w-full" style=" text-align:right;"
+            <div class="inputup-field">
+  <i class="fa fa-lock"></i>
+                <x-input id="password" class="myinput" style=" text-align:right;"
                                 type="password"
                                 name="password"
+                                placeholder="كلمة المرور"
                                 required autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('تاكيد كلمة السر')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full" style=" text-align:right;"
+            <div class="inputup-field">
+  <i class="fa fa-lock"></i>
+                <x-input id="password_confirmation" class="myinput" style=" text-align:right;"
                                 type="password"
+                                placeholder="تاكيد كلمة المرور"
                                 name="password_confirmation" required />
             </div>
   <!-- Select Option Rol type -->
-  <div class="mt-4">
-                            <x-label for="role_id" value="{{ __(': نوع المستخدم') }}" />
-                            <select name="role_id"style=" text-align:right;" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <option value="user">مستحق</option>
-                                <option value="msk">مزكي</option>
-                            </select>
-                        </div>
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('مسجل من قبل؟') }}
-                </a>
-
-                <x-button class="ml-4">
+  <div class="inputup-field">
+  <i class="fa fa-user"></i>
+  
+ <select name="role_id"style=" text-align:right;"   class="myinput" placeholder="مستخدم جديد">
+ <option value="user" selected>نوع المستخدم</option>
+ <option value="user">مستحق</option>
+ <option value="msk">مذكي</option>
+ </select>
+ 
+ </div>
+  <x-button class="btnup solid">
                     {{ __('تسجيل') }}
-                </x-button>
+  </x-button>
+      
+ <a class="socials-text" href="{{ route('login') }}">
+                    {{ __('مسجل من قبل؟') }}
+ </a>
+ <div class="socials-media">
+ <a href="#" class=" socials-icon">
+<i class="fab fa-facebook"></i>
+</a>
+<a href="#" class=" socials-icon">
+ <i class="fab fa-twitter"></i>
+</a>
+<a href="#" class=" socials-icon">
+<i class="fab fa-instagram"></i>
+</a>
+</div>
+</div>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+</div>

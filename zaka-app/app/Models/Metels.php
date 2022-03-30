@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Client;
 
-
+use App\Models\Met;
 
 
 class Metels extends Model
@@ -14,7 +14,7 @@ class Metels extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image' , '	location ' , 'metels_type' ,  'production_quantity','client_id',
+        'image' , '	location ' , 'met_id' ,  'production_quantity','client_id',
     ];
     
     public function client()
@@ -22,7 +22,11 @@ class Metels extends Model
         return  $this->hasOne(Client::class);
     }
 
-    
+    public function met()
+{
+    return  $this->hasMany(Met::class);
+}
+
 
     
 

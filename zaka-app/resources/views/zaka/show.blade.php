@@ -48,7 +48,7 @@ tr:nth-child(even) {
 <center>
     <h5><u> الامانة العامة لديوان الزكاة   </u></h5>
     <br>
-    <h5><u>   تقرير عن المزارعين   في الفتره</u></h5>
+    <h5><u>   تقرير عن الزروع التي توزن   في الفتره</u></h5>
   
     
 
@@ -91,7 +91,7 @@ tr:nth-child(even) {
 <table class="table col-md-6" style="padding-right:60px;">
     <thead>
         <tr>
-        <th>  التاريخ</th>
+       
             <th>كمية الانتاج</th>
             <th>نوع الري</th>
             <th>نوع المحصول</th>
@@ -102,11 +102,7 @@ tr:nth-child(even) {
     <tbody>
         @foreach($data as $row)
         <tr>
-        <td>
-
-      {{$row->created_at}}
-
-       </td>   
+        
    
 <td>
 
@@ -121,7 +117,7 @@ tr:nth-child(even) {
 
 <td>
 
-{{$row->crope_type}}
+{{$row->crope_name}}
 
 </td>
 

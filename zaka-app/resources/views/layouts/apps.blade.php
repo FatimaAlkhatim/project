@@ -126,44 +126,38 @@
 
 
 <div class="container-fluid">
-<footer class=" d-flex flex-wrap justify-content-between align-items-center py-3 my-4 ">
-  <ul class="navs justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link ">الصفحة الرئيسية</a></li>
-      <li class="nav-item"><a href="#" class="nav-link ">عن الديوان</a></li>
-      <li class="nav-item"><a href="#" class="nav-link ">القوانين واللوائح</a></li>
-      <li class="nav-item"><a href="#" class="nav-link ">تواصل معنا</a></li>
-      
-    </ul>
-	<div class="cc">
-		<p>الزكاة</p>
-		<p>	هي فرض على كل مسلم 
-</p>	<p>عاقل بالغ،حيث انها
-</p><p>ترفع البلاءوفيها فوائد
-	<p> كثيرة تحد من الفقر</p>
-			<p><a href="#" class="dd">لذلك عليك بذكاتك</a></p>
-		
-</div>
-      <div class="offsets-1 ">
-        <form>
-          <h5>Subscribe to our newsletter</h5>
-        
-          <div class="d-flexs ">
-        
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-primary" type="button">Subscribe</button>
-          </div>
-        </form>
-    </div>
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-0 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fa fa-facebook-f"></i></a>
 
-    <div class="d-flex  cop">
-      <ul class="list-unstyled d-flexe">
-        <li class="ms-3"><a href="#" class="fa fa-facebook fas" aria-hidden="true" width="24" height="24"></a></li>
-        <li class="ms-3"><a href="#" class="fa fa-instagram fas" aria-hidden="true" width="24" height="24"></a></li>
-        <li class="ms-3"><a href="#" class="fa fa-twitter fas" aria-hidden="true" width="24" height="24"></a></li>
-		<li class="ms-3"><a href="#" class="fa fa-youtube-play fas" aria-hidden="true" width="24" height="24"></a></li>
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fa fa-twitter"></i></a>
 
-      </ul>
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fa fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fa fa-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fa fa-linkedin"></i></a>
+
+      </section>
+      <h5> الرجاء زيارة صفحاتنا في المواقع  السابقه</h5>
+      <!-- Section: Social media -->
     </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      2022 @ زكاة السودان
+      <a class="text-white" href="https://mdbootstrap.com/">Zakat.Sudan.Com</a>
+    </div>
+    <!-- Copyright -->
   </footer>
 </div>
 

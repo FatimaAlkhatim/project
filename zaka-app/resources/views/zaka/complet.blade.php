@@ -18,30 +18,10 @@
                      <title>Document</title>
                    </head>
                    <body>
-                   
-
-                  @if($info->production_quantity >= 653)
-         
-                  @if($info->irrigate_type == 'مطري')
-                  
-                  <h3> زكاتك {{$info->production_quantity * $info->price_kilo / 10 / 100}}</h3>
-
+              
+                  <h3>زكاتك  {{$info->price_kilo }} جنيه</h3>
                 
-           
-                  @endif
-                  @endif
-
-                  @if($info->production_quantity >= 653)
-                  @if($info->irrigate_type == 'الاله')
-                  <h3>زكاتك {{$info->production_quantity * $info->price_kilo / 5 / 100 }}</h3>
-                  @endif
-                  @endif
-
-                  @if($info->production_quantity >= 653)
-                  @if($info->irrigate_type == 'تكميلي')
-                  <h3>زكاتك {{$info->production_quantity * $info->price_kilo / 7.5 / 100}}</h3>
-                  @endif
-                  @endif
+                 
                 
                
 
@@ -51,7 +31,8 @@
        
             <th>كمية الانتاج</th>
             <th>نوع الري</th>
-            <th>نوع المحصول</th>
+            <th> نوع المحصول</th>
+
             
           
         </tr>
@@ -62,13 +43,12 @@
     {{$info->irrigate_type }}
     </td>
     <td>
-    {{$info->crope_type }}
+    {{$fa }}
     </td>
   </tr>
 </table>
                  
-                
-                  
+              
               
 <div class="text-right">
     <a href="{{ route('zaka.payment') }}" class="btn btn-secondary btn-sm"> ادفع زكاتك <i class="fa fa-credit-card"></i> </a>

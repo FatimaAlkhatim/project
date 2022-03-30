@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('home/vendor/bootstrap/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/d.css') }}">
+
         <script type="text/javascript" src="{{asset('bootstrap-5.0.2/package/dist/css/bootstrap.min.css')}}"></script>
 
  <!-- Font Awesome Icons -->

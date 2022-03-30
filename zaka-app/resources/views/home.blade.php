@@ -11,7 +11,7 @@
 						</span>
 
 						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                        "إِنَّمَا وَلِيُّكُمُ اللَّهُ وَرَسُولُهُ وَالَّذِينَ آمَنُوا الَّذِينَ يُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ وَهُمْ رَاكِعُونَ" سورة المائدة، آية 55
+                       إِنَّمَا وَلِيُّكُمُ اللَّهُ وَرَسُولُهُ وَالَّذِينَ آمَنُوا الَّذِينَ يُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ وَهُمْ رَاكِعُونَ سورة المائدة، آية 55
 						</h2>
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
@@ -183,14 +183,14 @@
 		<!-- Slide2 -->
 		
 				<p class="m-text5 t-center">
-				الزكاة كما لا يخفى، لا بد لأن تكون في موضع القبول أن تصرف في مصارفها الشرعية، والتي حددها الله عزو جل في قوله: {إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ فَرِيضَةً مِنَ اللَّهِ وَاللَّهُ عَلِيمٌ حَكِيمٌ} [التوبة:60] 
+				الزكاة كما لا يخفى، لا بد ان تكون في موضع القبول أن تصرف في مصارفها الشرعية، والتي حددها الله عز و جل في قوله: {إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ فَرِيضَةً مِنَ اللَّهِ وَاللَّهُ عَلِيمٌ حَكِيمٌ} [التوبة:60] 
   
 </p>
 						<!-- Block2 -->
 						<div class="mianslider">
 							<div class="slicksslider">
 								<div class="item ">
-								<img src="{{asset('home/images/categories-PHOTOS_03.jpg')}}" alt="IMG-PRODUCT" >
+								<img src="{{asset('home/images/ab.jpg')}}" alt="IMG-PRODUCT" class="IME">
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
@@ -200,8 +200,8 @@
 									<div class="block2-btn-addcart w-size1 trans-0-4">
 										<!-- Button -->
 										<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											طلبة المدارس
-										</button>
+											ابن السبيل									
+									</button>
 									</div>
 								</div>
 							</div>
@@ -209,7 +209,7 @@
 
 						<!-- Block2 -->
 						<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_05.jpg')}}"  alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/ab1.jpg')}}"  alt="IMG-PRODUCT"  class="IME">
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
@@ -219,7 +219,7 @@
 									<div class="block2-btn-addcart w-size1 trans-0-4">
 										<!-- Button -->
 										<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											المسنون
+											في سبيل الله
 										</button>
 									</div>
 								</div>
@@ -228,7 +228,7 @@
 							
 						<!-- Block2 -->
 						<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_07.jpg')}}"  alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/categories-PHOTOS_07.jpg')}}"  alt="IMG-PRODUCT"  class="IME">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -248,7 +248,7 @@
 							
 						<!-- Block2 -->
 						<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_12.jpg')}}"  alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/ab2.jpg')}}"  alt="IMG-PRODUCT"  class="IME">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -259,7 +259,7 @@
 									<div class="block2-btn-addcart w-size1 trans-0-4">
 										<!-- Button -->
 										<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											الكوارث
+											العاملين عليها
 										</button>
 									</div>
 								</div>
@@ -267,7 +267,7 @@
 
 						<!-- Block2 -->
 						<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_14.jpg')}}" alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/categories-PHOTOS_14.jpg')}}" alt="IMG-PRODUCT"  class="IME">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -285,7 +285,7 @@
 							</div>	
 							<!-- Block2 -->
 							<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_16.jpg')}}"  alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/ab3.jpg')}}"  alt="IMG-PRODUCT"  class="IME">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -296,7 +296,7 @@
 									<div class="block2-btn-addcart w-size1 trans-0-4">
 										<!-- Button -->
 										<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											طلبة الجامعات
+											 الفقراء و المساكين
 										</button>
 									</div>
 								</div>
@@ -304,7 +304,7 @@
 
 						<!-- Block2 -->
 						<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_21.jpg')}}"  alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/categories-PHOTOS_21.jpg')}}"  alt="IMG-PRODUCT" class="IME">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -323,7 +323,7 @@
 
 						<!-- Block2 -->
 						<div class="item">
-								<img src="{{asset('home/images/categories-PHOTOS_23.jpg')}}"  alt="IMG-PRODUCT">
+								<img src="{{asset('home/images/categories-PHOTOS_23.jpg')}}"  alt="IMG-PRODUCT" class="IME">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

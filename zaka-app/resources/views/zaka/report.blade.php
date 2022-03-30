@@ -72,7 +72,7 @@ tr:nth-child(even) {
 <table class="table col-md-6">
     <thead>
         <tr>
-        <th>  التاريخ</th>
+ 
             <th>كمية الانتاج</th>
             <th>نوع المعدن</th>
           
@@ -82,11 +82,7 @@ tr:nth-child(even) {
     <tbody>
         @foreach($data as $row)
         <tr>
-        <td>
-
-{{$row->created_at}}
-
-</td>      
+      
    
 <td>
 
@@ -97,7 +93,7 @@ tr:nth-child(even) {
 
 <td>
 
-{{$row->metels_type}}
+{{$row->met_name}}
 
 </td>  
 

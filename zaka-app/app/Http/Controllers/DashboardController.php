@@ -11,6 +11,10 @@ use App\Models\State;
 use App\Models\Local;
 use App\Models\Farmerie;
 use App\Models\Payment;
+use App\Models\Pay;
+use App\Models\Payt;
+use App\Models\Py;
+
 use DB;
 class DashboardController extends Controller
 {
@@ -68,7 +72,11 @@ public function post()
  
  ->get(['selectts.id','reseivables.name','selectts.amount']);
 
- return view('post',compact('data'));
+ $sum = Payment::sum('amount_py') + $sum = Pay::sum('amount_py')+Payt::sum('amount_py')+Py::sum('amount_py') - $sum = Selectt::sum('amount');
+
+    $ss= Selectt::all();
+
+ return view('post',compact('data','sum','ss'));
 }
 
 
@@ -78,36 +86,46 @@ public function post()
     
       $data = State::join('reseivables','reseivables.state_id','=','states.id')
       ->join('locals','locals.id','=','reseivables.local_id')
+
+      ->get(['states.state_name','locals.local_name','reseivables.name','reseivables.national','reseivables.iphone','reseivables.location','reseivables.status','reseivables.reseivable_type','reseivables.image','reseivables.created_at']);
+    
+       return view(' overseer',compact('data'));
+   }
+   
+
+   public function  over()
+   {
+    
+      $data = State::join('reseivables','reseivables.state_id','=','states.id')
+      ->join('locals','locals.id','=','reseivables.local_id')
        ->join('selectts','selectts.reseivable_id','=','reseivables.id')
 
-      ->get(['selectts.amount','states.state_name','locals.local_name','reseivables.name','reseivables.national','reseivables.iphone','reseivables.location','reseivables.status','reseivables.reseivable_type','reseivables.image','reseivables.created_at']);
+      ->get(['selectts.amount','reseivables.name']);
        $re=reseivable::all();
     
     
 
-    return view(' overseer',compact('data','re'));
+    return view(' over',compact('data','re'));
    }
    
-
-   
-   public function  over()
-   {
+  //  public function  over()
+  //  {
     
-      $pp = Payment::join('selectts','selectts.payment_id','=','payments.id')
+  //     $pp = Payment::join('selectts','selectts.payment_id','=','payments.id')
 
-      ->get(['selectts.amount','payments.amount_py']);
+  //     ->get(['selectts.amount','payments.amount_py']);
 
        
-        $sum = Payment::sum('amount_py') - $sum = Selectt::sum('amount');
+  //       // $sum = Payment::sum('amount_py') - $sum = Selectt::sum('amount');
        
         
       
       
 
-    $tt= Payment::all();
+  //   $tt= Payment::all();
 
-    return view(' over',compact('pp','tt','sum'));
-   }
+  //   return view(' over',compact('pp','tt','sum'));
+  //  }
 
 public function report(){
   return view('report');
@@ -149,17 +167,89 @@ public function deletesel($id){
 
    public function crope(){
     $data = Client::join('farmeries','farmeries.client_id','=','clients.id')
-  ->get(['clients.name','farmeries.crope_type','farmeries.irrigate_type','farmeries.production_quantity']);
+    ->join('cropes','cropes.id','=','farmeries.crope_id')
+
+  ->get(['cropes.id','cropes.crope_name','clients.name','farmeries.irrigate_type','farmeries.production_quantity']);
    return view('zaka.crope',compact('data'));
   
      }
 
      
      public function search(Request  $request){
-      $data = Client::where('farmeries.crope_type','like','%' .$request->crope_type.'%')->join('farmeries','farmeries.client_id','=','clients.id')
-    ->get(['clients.name','farmeries.crope_type','farmeries.irrigate_type','farmeries.production_quantity']);
+      $data = Client::where('farmeries.crope_id','like','%' .$request->crope_id.'%')->join('farmeries','farmeries.client_id','=','clients.id')
+      ->join('cropes','cropes.id','=','farmeries.crope_id')
+
+    ->get(['cropes.id','cropes.crope_name','clients.name','farmeries.irrigate_type','farmeries.production_quantity']);
      return view('zaka.crope',compact('data'))->withDetails($data);
     
     
        }
+
+
+       public function crop(){
+        $data = Client::join('farms','farms.client_id','=','clients.id')
+        ->join('cros','cros.id','=','farms.cro_id')
+    
+      ->get(['cros.id','cros.cro_name','clients.name','farms.irrigate_type','farms.production_quantity']);
+       return view('zaka.crop',compact('data'));
+      
+         }
+
+         public function searchs(Request  $request){
+          $data = Client::where('farms.cro_id','like','%' .$request->cro_id.'%')->join('farms','farms.client_id','=','clients.id')
+          ->join('cros','cros.id','=','farms.cro_id')
+    
+        ->get(['cros.id','cros.cro_name','clients.name','farms.irrigate_type','farms.production_quantity']);
+         return view('zaka.crop',compact('data'))->withDetails($data);
+        
+        
+           }
+
+
+
+           //report of farmeries
+public function shew(Request $request)
+{
+
+$data = Client::join('farms','farms.client_id','=','clients.id')
+->join('cros','cros.id','=','farms.cro_id')
+
+->get(['cros.cro_name','clients.name','farms.irrigate_type','farms.production_quantity','farms.location','farms.created_at']);
+
+
+return view('zaka.shew',compact('data'));
+}
+
+
+//report of farmeries by date
+public function Search_invoic(Request $request)
+{
+    $start_at = date($request->start_at);
+    $end_at = date($request->end_at);
+
+                
+$data = Client::whereBetween('farms.created_at',[$start_at,$end_at])->join('farms','farms.client_id','=','clients.id')
+->join('cropes','cropes.id','=','farms.crope_id')
+
+
+->get(['cropes.crope_name','clients.name','farms.irrigate_type','farms.production_quantity','farms.location','farms.created_at']);
+        return view('zaka.shew',compact('start_at','end_at','data'))->withDetails($data);
+          
+} 
+
+    
+public function updatass($id){
+  $data=selectt::find($id);
+ return view('zaka.updatass',compact('data'));
+
+}
+
+public function updatatt( Request $request, $id){
+  $data=selectt::find($id);
+  $data->amount =$request->amount ;  
+  $data->save();
+  return redirect()->back();
+
+}
+
 }
